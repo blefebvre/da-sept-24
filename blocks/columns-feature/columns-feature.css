@@ -1,0 +1,106 @@
+/* columns-feature: large rounded 3:2 image beside breadcrumb, heading, byline and meta */
+.columns-feature .columns-feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.columns-feature .columns-feature-row + .columns-feature-row {
+  margin-top: var(--space-xl);
+}
+
+.columns-feature .columns-feature-row > div {
+  min-width: 0;
+}
+
+/* image */
+.columns-feature .columns-feature-image picture {
+  display: block;
+}
+
+.columns-feature .columns-feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
+
+/* text column */
+.columns-feature .columns-feature-content > :first-child {
+  margin-top: 0;
+}
+
+.columns-feature .columns-feature-content p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary-color);
+}
+
+/* breadcrumb: Home > Case studies */
+.columns-feature .columns-feature-content p.columns-feature-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-xl);
+  font-size: var(--text-base);
+  color: var(--text-color);
+}
+
+.columns-feature .columns-feature-breadcrumb a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.columns-feature .columns-feature-breadcrumb a:any-link:last-child {
+  color: var(--text-secondary-color);
+}
+
+.columns-feature .columns-feature-breadcrumb a:any-link:hover {
+  opacity: 0.7;
+}
+
+/* chevron separator between breadcrumb links */
+.columns-feature .columns-feature-breadcrumb a:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--text-color);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M6 4L10 8L6 12' stroke='black' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* heading */
+.columns-feature .columns-feature-content h2 {
+  margin: 0;
+}
+
+/* byline ("By Taylor Brooks") */
+.columns-feature .columns-feature-content h2 + p {
+  margin-top: var(--space-md);
+  color: var(--text-color);
+}
+
+/* meta ("June 12, 2024 • 4 min read") */
+.columns-feature .columns-feature-content h2 + p + p {
+  margin-top: var(--space-xs);
+}
+
+@media (width >= 992px) {
+  .columns-feature .columns-feature-2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columns-feature .columns-feature-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

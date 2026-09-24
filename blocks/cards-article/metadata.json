@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-grey",
+    "density": "medium",
+    "purpose": "article-teasers",
+    "imagePattern": "landscape-top",
+    "structure": "image + tag + date + h3 link"
+  },
+  "contentPattern": "4 rows x 2 columns. Col 1: image. Col 2: paragraph with tag (e.g. emphasized/code 'Casual Cool') and date 'May 12', H3 title linked to the article URL.",
+  "options": [],
+  "memberVariantIds": ["cards-article"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

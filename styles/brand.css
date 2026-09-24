@@ -1,0 +1,98 @@
+/* WKND Trendsetters brand tokens (extracted from https://www.wknd-trendsetters.site/) */
+:root {
+  /* palette */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-yellow: #f4fe8b;
+  --color-lavender: #cbd4ff;
+  --color-purple: #f4e5fc;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e8e8e8;
+  --color-gray-300: #d4d4d4;
+  --color-gray-500: #666;
+  --color-gray-700: #404040;
+  --color-gray-900: #171717;
+
+  /* semantic colors */
+  --background-color: var(--color-white);
+  --light-color: var(--color-gray-100);
+  --dark-color: var(--color-black);
+  --text-color: var(--color-black);
+  --text-secondary-color: var(--color-gray-500);
+  --link-color: inherit;
+  --link-hover-color: inherit;
+  --border-color: var(--color-gray-200);
+
+  /* fonts */
+  --heading-font-family: syncopate, syncopate-fallback, sans-serif;
+  --body-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
+
+  /* type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.375rem;
+  --text-4xl: 1.5rem;
+  --text-5xl: 1.75rem;
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+
+  /* spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+  --space-5xl: 8rem;
+  --section-padding: var(--space-3xl);
+  --content-max-width: 1200px;
+  --container-padding: 1rem;
+
+  /* shape and motion */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-card: 1.25rem;
+  --radius-full: 9999px;
+  --shadow-button: 4px 4px 0 0 var(--color-black);
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 8%);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+
+  /* nav height */
+  --nav-height: 83px;
+}
+
+@media (width >= 480px) {
+  :root {
+    --text-5xl: 2rem;
+    --text-4xl: 1.75rem;
+    --container-padding: 1.5rem;
+  }
+}
+
+@media (width >= 768px) {
+  :root {
+    --text-5xl: 2.5rem;
+    --text-4xl: 2rem;
+    --text-3xl: 1.5rem;
+    --section-padding: var(--space-4xl);
+  }
+}
+
+@media (width >= 992px) {
+  :root {
+    --text-5xl: 3.5rem;
+    --text-4xl: 2.5rem;
+    --text-3xl: 2rem;
+    --section-padding: var(--space-5xl);
+  }
+}

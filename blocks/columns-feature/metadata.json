@@ -1,0 +1,20 @@
+{
+  "variantName": "columns-feature",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "featured-story",
+    "imagePattern": "single-large-left",
+    "structure": "image + breadcrumb + h2 + byline + meta"
+  },
+  "contentPattern": "1 row x 2 columns. Col 1: image. Col 2: paragraph with 'Home' and 'Case studies' links, H2, paragraph 'By Taylor Brooks', paragraph 'June 12, 2024 • 4 min read'.",
+  "options": [],
+  "memberVariantIds": ["columns-feature"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

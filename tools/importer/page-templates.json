@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.wknd-trendsetters.site/"
+      ],
+      "representativeUrl": "https://www.wknd-trendsetters.site/",
+      "description": "WKND Trendsetters homepage: collage hero, featured story, photo gallery, testimonials, latest articles, FAQ and closing CTA banner",
+      "blocks": [
+        {
+          "name": "hero-collage",
+          "instances": [
+            "#main-content > header.section.secondary-section"
+          ]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1) > div.container > div.grid-layout"
+          ]
+        },
+        {
+          "name": "columns-gallery",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(2) > div.container > div.grid-layout.desktop-4-column"
+          ]
+        },
+        {
+          "name": "tabs-testimonial",
+          "instances": [
+            "#main-content > section.section:nth-of-type(3) .tabs-wrapper"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(4) > div.container > div.grid-layout.desktop-4-column"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "#main-content > section.section:nth-of-type(5) .faq-list"
+          ]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            "#main-content > section.section.inverse-section"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "intro-hero",
+          "selector": [
+            "#main-content > header.section.secondary-section",
+            "header.section.secondary-section"
+          ],
+          "style": "grey",
+          "blocks": [
+            "hero-collage"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "featured-story",
+          "selector": [
+            "#main-content > section.section:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "photo-gallery",
+          "selector": [
+            "#main-content > section.section.secondary-section:nth-of-type(2)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-gallery"
+          ],
+          "defaultContent": [
+            "#main-content > section.section.secondary-section:nth-of-type(2) > div.container > div.utility-text-align-center"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "testimonials",
+          "selector": [
+            "#main-content > section.section:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "latest-articles",
+          "selector": [
+            "#main-content > section.section.secondary-section:nth-of-type(4)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            "#main-content > section.section.secondary-section:nth-of-type(4) > div.container > div.utility-text-align-center"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "faq",
+          "selector": [
+            "#main-content > section.section:nth-of-type(5)"
+          ],
+          "style": "faq-split",
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": [
+            "#main-content > section.section:nth-of-type(5) > div.container > div.grid-layout > div:first-child"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "closing-cta",
+          "selector": [
+            "#main-content > section.section.inverse-section",
+            "section.section.inverse-section"
+          ],
+          "style": "dark",
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

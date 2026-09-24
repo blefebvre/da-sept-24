@@ -1,0 +1,20 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "closing-cta",
+    "imagePattern": "background-overlay",
+    "structure": "bg image + h2 + paragraph + CTA"
+  },
+  "contentPattern": "1 column. Row 1: background image. Row 2: H2, paragraph, link 'See more'.",
+  "options": [],
+  "memberVariantIds": ["hero-banner"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

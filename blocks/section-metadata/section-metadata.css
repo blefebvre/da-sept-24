@@ -1,0 +1,4 @@
+/* hidden until decorate() applies it to the section and removes it */
+.section-metadata {
+  display: none;
+}

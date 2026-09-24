@@ -1,0 +1,42 @@
+/* columns-gallery: square, rounded photo grid
+   Source: .grid-layout.desktop-4-column.grid-gap-sm > .utility-aspect-1x1 > img.cover-image
+   1 col < 768px, 2 cols 768-991px, 4 cols >= 992px; 12px gap; 20px radius */
+.columns-gallery .columns-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns-gallery .columns-gallery-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.columns-gallery .columns-gallery-item picture,
+.columns-gallery .columns-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width >= 768px) {
+  .columns-gallery .columns-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 992px) {
+  /* source heading block uses margin-bottom: 8rem at desktop (4rem below) */
+  main > .section > .default-content-wrapper + .columns-gallery-wrapper {
+    margin-top: var(--space-5xl);
+  }
+
+  .columns-gallery .columns-gallery-grid {
+    grid-template-columns: repeat(var(--columns-gallery-cols, 4), 1fr);
+  }
+}
