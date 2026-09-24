@@ -1,0 +1,20 @@
+{
+  "variantName": "columns-gallery",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-grey",
+    "density": "compact",
+    "purpose": "photo-gallery",
+    "imagePattern": "square-grid-4x2",
+    "structure": "8 images"
+  },
+  "contentPattern": "2 rows x 4 columns, one image per cell.",
+  "options": [],
+  "memberVariantIds": ["columns-gallery"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

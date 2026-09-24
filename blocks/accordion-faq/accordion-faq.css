@@ -1,0 +1,67 @@
+/* Accordion (FAQ) - values extracted from source .faq-list (identical at all breakpoints) */
+.accordion-faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.accordion-faq .accordion-faq-item {
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.accordion-faq .accordion-faq-item-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  color: var(--text-color);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.accordion-faq .accordion-faq-item-label:hover {
+  background-color: var(--color-gray-100);
+}
+
+.accordion-faq .accordion-faq-item-label::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-faq .accordion-faq-item-question > * {
+  margin: 0;
+  font: inherit;
+  text-transform: none;
+}
+
+/* plus icon (24 viewBox, 2px round-cap strokes) rotated 45deg into an "x" when open */
+.accordion-faq .accordion-faq-item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform var(--transition-normal);
+}
+
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-faq .accordion-faq-item-body {
+  padding: 0 var(--space-xl) var(--space-xl);
+  color: var(--color-gray-700);
+  line-height: 1.7;
+}
+
+.accordion-faq .accordion-faq-item-body > :first-child {
+  margin-top: 0;
+}
+
+.accordion-faq .accordion-faq-item-body > :last-child {
+  margin-bottom: 0;
+}

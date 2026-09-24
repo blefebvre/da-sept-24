@@ -1,0 +1,68 @@
+/* hero-banner: rounded card with full-bleed background photo, bottom gradient
+   overlay and white H2 / paragraph / CTA anchored to the bottom-left.
+   Values extracted from source .inverse-section .utility-radius-card. */
+.hero-banner {
+  --hero-banner-overlay: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 0%) 60%);
+
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 28rem;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--color-white);
+}
+
+.hero-banner .hero-banner-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-banner .hero-banner-background picture,
+.hero-banner .hero-banner-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* legibility overlay layer */
+.hero-banner .hero-banner-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-banner-overlay, rgb(0 0 0 / 40%));
+}
+
+.hero-banner .hero-banner-content {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 42rem;
+  padding: var(--space-3xl);
+}
+
+.hero-banner .hero-banner-content > :first-child {
+  margin-top: 0;
+}
+
+.hero-banner .hero-banner-content h2 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: var(--text-5xl);
+  letter-spacing: -0.02em;
+}
+
+.hero-banner .hero-banner-content p {
+  margin: var(--space-md) 0 0;
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+/* CTA group: source .button-group margin-top */
+.hero-banner .hero-banner-content p.button-wrapper {
+  margin-top: var(--space-xl);
+}

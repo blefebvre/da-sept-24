@@ -1,0 +1,20 @@
+{
+  "variantName": "hero-collage",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-grey",
+    "density": "spacious",
+    "purpose": "page-intro",
+    "imagePattern": "collage-3",
+    "structure": "h1 + subheading + 2 CTAs + 3 images"
+  },
+  "contentPattern": "1 column. Row 1: the three images (collage). Row 2: H1, subheading paragraph, two links (first bold = primary, second italic/plain = secondary).",
+  "options": [],
+  "memberVariantIds": ["hero-collage"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

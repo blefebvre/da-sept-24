@@ -1,0 +1,20 @@
+{
+  "variantName": "tabs-testimonial",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "testimonials",
+    "imagePattern": "large-image + avatars",
+    "structure": "avatar tab labels + image + name + role + quote"
+  },
+  "contentPattern": "4 rows x 2 columns. Col 1 (tab label): avatar image, bold name, role. Col 2 (panel): large image, bold name, role, quote paragraph.",
+  "options": [],
+  "memberVariantIds": ["tabs-testimonial"],
+  "usage": {
+    "pagesUsing": ["https://www.wknd-trendsetters.site/"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

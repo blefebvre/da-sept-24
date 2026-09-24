@@ -1,0 +1,84 @@
+/* Hero (collage): text column beside a rounded multi-image collage */
+.hero-collage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3xl);
+}
+
+/* text column: heading, subheading, then a wrapping group of buttons */
+.hero-collage .hero-collage-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: var(--space-md);
+}
+
+.hero-collage .hero-collage-content > * {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.hero-collage .hero-collage-content > :first-child {
+  margin-top: 0;
+}
+
+.hero-collage .hero-collage-content > h1 + p:not(.button-wrapper),
+.hero-collage .hero-collage-content > h2 + p:not(.button-wrapper) {
+  margin-top: var(--space-lg);
+  font-size: var(--text-lg);
+}
+
+.hero-collage .hero-collage-content > p.button-wrapper {
+  margin-top: var(--space-xl);
+}
+
+.hero-collage .hero-collage-content > p.button-wrapper + p.button-wrapper {
+  margin-top: var(--space-md);
+}
+
+/* collage */
+.hero-collage .hero-collage-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-xs);
+}
+
+.hero-collage .hero-collage-image {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  aspect-ratio: 3 / 2;
+}
+
+.hero-collage .hero-collage-image picture,
+.hero-collage .hero-collage-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* buttons sit side by side from 768px up */
+@media (width >= 768px) {
+  .hero-collage .hero-collage-content > p.button-wrapper {
+    flex: 0 0 auto;
+  }
+
+  .hero-collage .hero-collage-content > p.button-wrapper + p.button-wrapper {
+    margin-top: var(--space-xl);
+  }
+}
+
+@media (width >= 992px) {
+  .hero-collage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-collage .hero-collage-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-collage .hero-collage-media.hero-collage-media-1 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
