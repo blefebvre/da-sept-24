@@ -1,0 +1,20 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "image",
+    "density": "full-bleed",
+    "purpose": "promo-hero",
+    "imagePattern": "large-artwork",
+    "structure": "image + cta"
+  },
+  "contentPattern": "1 row per slide: cell 1 = slide image; cell 2 = CTA link ('Play now'). Countdown timer omitted (dynamic).",
+  "options": [],
+  "memberVariantIds": ["carousel-hero"],
+  "usage": {
+    "pagesUsing": ["https://www.alc.ca/content/alc/en.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

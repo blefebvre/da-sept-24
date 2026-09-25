@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "right-rail-promos",
+    "imagePattern": "image-only",
+    "structure": "image + link"
+  },
+  "contentPattern": "1 row per promo: cell 1 = image; cell 2 = link to promo target",
+  "options": [],
+  "memberVariantIds": ["cards-promo"],
+  "usage": {
+    "pagesUsing": ["https://www.alc.ca/content/alc/en.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

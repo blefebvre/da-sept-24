@@ -1,0 +1,38 @@
+/* Atlantic Lottery (alc.ca) brand tokens — extracted from https://www.alc.ca/content/alc/en.html */
+:root {
+  /* fonts: Ubuntu via Google Fonts; Proxima Nova is licensed and not publicly hosted,
+     so the source's own Helvetica/Arial fallback stack is used */
+  --heading-font-family: ubuntu, helvetica, arial, sans-serif;
+  --body-font-family: proxima_nova, "proxima-nova", helvetica, arial, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #69727b;
+  --link-color: #006faf;
+  --link-hover-color: #005e95;
+  --alc-navy: #00529b;
+  --alc-blue: #009ddb;
+  --alc-green: #aaba0a;
+  --alc-button-hover: #007bc2;
+  --alc-border-grey: #d4dadf;
+  --alc-light-grey: #eef1f3;
+
+  /* spacing */
+  --section-padding: 0;
+  --content-max-width: 1160px;
+  --nav-height: 70px;
+
+  /* heading sizes */
+  --heading-size-xxl: 36px;
+  --heading-size-xl: 28px;
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}
+
+@media (width >= 900px) {
+  :root {
+    --nav-height: 141px;
+  }
+}

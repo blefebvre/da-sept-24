@@ -1,0 +1,221 @@
+/* ALC game tiles: image banner on top, white content box with title,
+   description and full-width pill CTA pinned to the bottom of the box.
+   Mobile (< 768px): one tile at a time (scroll-snap carousel) with prev/next + dots.
+   >= 768px: two tiles per row (source col-sm-6 grid). */
+
+.cards-game {
+  margin: 0 -20px; /* bleed over the 20px section gutter so tiles sit 10px from the viewport edge */
+}
+
+.cards-game > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.cards-game > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-game .cards-game-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 10px;
+  scroll-snap-align: start;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+
+/* image: 185px banner, source uses a centred, unscaled background image */
+.cards-game .cards-game-card-image {
+  height: 185px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-game .cards-game-card-image picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-game .cards-game-card-image img {
+  display: block;
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* content box: source is a fixed 220px box (CTA top at 146px, 29px below
+   the CTA incl. border). min-height keeps that size without clipping; the
+   box grows (together with its row-mate) only when content needs more room. */
+.cards-game .cards-game-card-body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 220px;
+  padding: 0 30px 28px;
+  border: 1px solid var(--alc-border-grey);
+  border-radius: 0 0 8px 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 45%);
+  color: var(--text-color);
+}
+
+.cards-game .cards-game-card-body > * {
+  margin: 0;
+}
+
+.cards-game .cards-game-card-body > .cards-game-card-title {
+  margin: 20px 0 10px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.cards-game .cards-game-card-body > .cards-game-card-description {
+  min-height: 50px;
+  margin-bottom: 21px; /* minimum gap to the CTA; the rest is flexible */
+}
+
+.cards-game .cards-game-card-description p {
+  margin: 0 0 10px;
+}
+
+/* inline "Read more" chevron link: nowrap + reserved room keeps the
+   chevron on the same line and inside the text box */
+.cards-game .cards-game-card-description a:any-link {
+  position: relative;
+  padding-right: 16px;
+  white-space: nowrap;
+  color: var(--link-color);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cards-game .cards-game-card-description a:any-link::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 14px;
+  height: 19.2px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
+}
+
+/* CTA: reuses the global ALC pill (a.button); stretched to the content width
+   and pushed to the bottom so CTAs line up across a row */
+.cards-game .cards-game-card-body > .cards-game-card-cta {
+  margin: auto 0 0;
+}
+
+.cards-game .cards-game-card-cta a.button:any-link {
+  display: block;
+  width: 100%;
+}
+
+/* mobile carousel controls */
+.cards-game .cards-game-controls {
+  display: flex;
+  margin-top: 60px;
+  padding: 0 10px;
+}
+
+.cards-game .cards-game-prev,
+.cards-game .cards-game-next {
+  box-sizing: border-box;
+  width: 40px;
+  height: 30px;
+  margin: 0;
+  padding: 1px 6px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.cards-game .cards-game-chevron {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.cards-game .cards-game-prev .cards-game-chevron {
+  transform: scaleX(-1);
+}
+
+.cards-game .cards-game-dots {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-game .cards-game-dot {
+  position: relative;
+  box-sizing: border-box;
+  width: 26px;
+  height: 24px;
+  margin: 0 4px;
+  padding: 1px 6px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cards-game .cards-game-dot::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  transform: translate(-5px, -5px);
+}
+
+.cards-game .cards-game-dot.active::after {
+  background-color: var(--alc-blue);
+}
+
+@media (width >= 768px) {
+  .cards-game {
+    margin: 0;
+  }
+
+  .cards-game > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    padding: 0 10px;
+  }
+
+  .cards-game .cards-game-card {
+    margin-bottom: 27px;
+  }
+
+  .cards-game .cards-game-card-body {
+    padding: 0 40px 28px;
+  }
+
+  .cards-game .cards-game-controls {
+    display: none;
+  }
+}
