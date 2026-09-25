@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "alc",
+      "urls": [
+        "https://www.alc.ca/content/alc/en.html"
+      ],
+      "representativeUrl": "https://www.alc.ca/content/alc/en.html",
+      "description": "ALC homepage: hero promo carousel, recent winners slider, featured game tiles with right-rail promos",
+      "urlPattern": "/content/alc/*",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            "div.carousel.list.parbase.hero"
+          ]
+        },
+        {
+          "name": "carousel-winners",
+          "instances": [
+            "div.winners-carousel"
+          ]
+        },
+        {
+          "name": "cards-game",
+          "instances": [
+            "main.alc-container.cmp-container--game-tiles"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "div.alc-container.cmp-container--hide-column-gutters"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "hero-promo-carousel",
+          "selector": [
+            "div.carousel.list.parbase.hero"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "recent-winners",
+          "selector": [
+            "div.section-header.cmp-section-header--alc-blue"
+          ],
+          "style": "winners",
+          "blocks": [
+            "carousel-winners"
+          ],
+          "defaultContent": [
+            "div.section-header.cmp-section-header--alc-blue"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "featured-games-and-promotions",
+          "selector": [
+            "div.aem-Grid > div.alc-container:has(.cmp-container--game-tiles)",
+            "div.section-header.cmp-section-header--alc-green"
+          ],
+          "style": "featured",
+          "blocks": [
+            "cards-game",
+            "cards-promo"
+          ],
+          "defaultContent": [
+            "div.section-header.cmp-section-header--alc-green"
+          ]
+        }
+      ]
+    }
+  ]
+}

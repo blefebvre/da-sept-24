@@ -1,0 +1,537 @@
+/* carousel-winners: ALC "Recent winners" band. Values measured from the source (alc.ca) at
+   375 / 1024 / 1280. Source breakpoints: <768 stacked, 768-1200 compact row, >1200 full row. */
+
+.carousel-winners {
+  position: relative;
+  padding-bottom: 5px;
+  background-color: rgb(101 186 247);
+  color: #fff;
+}
+
+.carousel-winners .carousel-winners-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.carousel-winners .carousel-winners-slides-container {
+  position: relative;
+}
+
+.carousel-winners .carousel-winners-slides,
+.carousel-winners .carousel-winners-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-winners .carousel-winners-slides {
+  display: flex;
+  overflow: scroll clip;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-winners .carousel-winners-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- slide (mobile: photo, details and prize stacked, centred) ---------- */
+.carousel-winners .carousel-winners-slide {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 10px 0;
+  scroll-snap-align: start;
+  background: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/winners-carousel-bg-generic-mobile.png') center center no-repeat;
+  text-align: center;
+}
+
+/* province map watermark */
+.carousel-winners .carousel-winners-slide::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 100px;
+  left: 0;
+  width: 250px;
+  height: 181px;
+  background: var(--carousel-winners-province, none) top left / contain no-repeat;
+}
+
+.carousel-winners .carousel-winners-slide[data-province='NB'] {
+  --carousel-winners-province: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/NB.png');
+}
+
+.carousel-winners .carousel-winners-slide[data-province='NS'] {
+  --carousel-winners-province: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/NS.png');
+}
+
+.carousel-winners .carousel-winners-slide[data-province='PE'] {
+  --carousel-winners-province: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/PE.png');
+}
+
+.carousel-winners .carousel-winners-slide[data-province='NL'] {
+  --carousel-winners-province: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/NL.png');
+}
+
+.carousel-winners .carousel-winners-slide p {
+  margin: 0;
+}
+
+/* winner photo */
+.carousel-winners .carousel-winners-slide-photo {
+  padding: 0 10px;
+  line-height: 0;
+}
+
+.carousel-winners .carousel-winners-slide-photo picture {
+  display: block;
+}
+
+.carousel-winners .carousel-winners-slide-photo img {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 162px;
+  height: 162px;
+  margin: 0 auto;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 18px rgb(0 82 155 / 50%);
+  object-fit: cover;
+}
+
+/* name, location, CTA */
+.carousel-winners .carousel-winners-slide-details {
+  padding: 0 10px;
+}
+
+.carousel-winners .carousel-winners-slide .carousel-winners-slide-name {
+  margin: 20px 0 10px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19.8px;
+}
+
+.carousel-winners .carousel-winners-slide-name strong {
+  font-weight: inherit;
+}
+
+.carousel-winners .carousel-winners-slide-location {
+  font-family: var(--body-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 24.2px;
+}
+
+.carousel-winners .carousel-winners-slide-cta {
+  line-height: 0;
+}
+
+main .carousel-winners .carousel-winners-slide-cta a.button:any-link {
+  top: 10px;
+  width: 216px;
+}
+
+/* game logo + "Winner" ribbon */
+.carousel-winners .carousel-winners-slide-prize {
+  position: relative;
+  top: 29px;
+  padding: 0 10px;
+}
+
+.carousel-winners .carousel-winners-slide .carousel-winners-slide-game {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  margin: 0 auto;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4286;
+  white-space: nowrap;
+}
+
+.carousel-winners .carousel-winners-slide-game picture {
+  display: contents;
+}
+
+.carousel-winners .carousel-winners-slide-game img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: none;
+  height: 54px;
+}
+
+.carousel-winners .carousel-winners-slide-ribbon {
+  display: inline-block;
+  margin: 15px 20px 0 10px;
+  padding: 0 25px 0 110px;
+  border-radius: 5px;
+  background: #ec2f2d;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* per-game logo placement (source .game-title.{Game} rules) */
+.carousel-winners .carousel-winners-slide-game[data-game='Casino'] img {
+  top: auto;
+  bottom: 3px;
+  left: -4px;
+  height: 44px;
+}
+
+.carousel-winners .carousel-winners-slide-game[data-game='Casino'] .carousel-winners-slide-ribbon,
+.carousel-winners .carousel-winners-slide-game[data-game='LottoMax'] .carousel-winners-slide-ribbon {
+  padding-left: 100px;
+}
+
+.carousel-winners .carousel-winners-slide-game[data-game='LottoMax'] img {
+  top: -4px;
+  left: -5px;
+  height: 58px;
+}
+
+/* prize amount: digit groups in white boxes */
+.carousel-winners .carousel-winners-slide .carousel-winners-slide-amount {
+  margin: 0 0 10px;
+  color: var(--alc-navy);
+  font-family: var(--body-font-family);
+  font-size: 47px;
+  font-weight: 400;
+  line-height: 1.4286;
+  text-align: center;
+
+  /* one full line box even when the line only holds the digit boxes (e.g. quirks mode) */
+  min-height: 1.4286em;
+}
+
+.carousel-winners .carousel-winners-slide-digits {
+  display: inline-flex;
+  gap: 2px;
+  vertical-align: top;
+}
+
+.carousel-winners .carousel-winners-slide-digits > span {
+  position: relative;
+  overflow: hidden;
+  padding: 9px 5px 0;
+  border: 1px solid var(--alc-border-grey);
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 26px;
+}
+
+.carousel-winners .carousel-winners-slide-digits > span:first-child::before {
+  content: '$';
+  display: inline-block;
+  font-size: 15px;
+  line-height: 0;
+  vertical-align: 16px;
+}
+
+.carousel-winners .carousel-winners-slide-digits > span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  box-sizing: border-box;
+  width: calc(100% - 2px);
+  height: 2px;
+  border-bottom: 2px solid rgb(255 255 255 / 50%);
+}
+
+/* ---------- side arrows ---------- */
+.carousel-winners .carousel-winners-navigation-buttons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.carousel-winners .carousel-winners-prev,
+.carousel-winners .carousel-winners-next {
+  position: absolute;
+  top: 50%;
+  display: block;
+  box-sizing: border-box;
+  width: 22px;
+  height: 96px;
+  margin: 0;
+  padding: 1px 6px;
+  border: 0;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+.carousel-winners .carousel-winners-prev {
+  left: 22px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAABgCAMAAAAuEXLVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAkFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+WABnwAAAAMHRSTlMAMYBrZjYbegdQTAp8GDpiAW8uJHUDWUQQf0MlLTsXURxnMiB4BVVIDH4TP14CcikVqs/CAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAASVJREFUSMeVlkcWgkAUBIdGBXMAc8AEZr3/7TyAXT5lWQse86d+NyF8PpFiQ0NNdUMbSlKDm2oZ2u6oa3BPfUMHQ40MzpSPDZ5oauhsPp8ZvNDE0HGupcErDQcG97U2dKNO2+CWCkPTRFuD69q5+cfaG3rQsTS40snQ80VXg2+6G/p46mXwS8+HwXfdDL3qcjb4pMrQ8qiDwXuv487quPU6FqTjxuA16bgyeEk6Ln7XcUo6ZgaPSMeeoV3SsfmPjjWvY/QHhpekiRrh5w+k48DhaVQwWLgGujS4YhIC9AHZSE0QmbSHJaGVggWEdaXlhiig4ICYgVCiCIPAo3iEMKXohc2AWKcSgMqggoE6gvL6oqkrRqpRKF2oaCp0qH/U1P9ahEjxGxDwFeVmxxDVAAAAAElFTkSuQmCC');
+}
+
+.carousel-winners .carousel-winners-next {
+  right: 22px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAABgCAMAAAAuEXLVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAkFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+WABnwAAAAMHRSTlMAa4AxNmYHehxMUBh8CmI6Lm8BA3UkRFkQf0MlLTsXUWcyBXggSFUTfgxePylyAhv7clqgAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAASFJREFUSMeVllcSgkAQBeWZwYABVFBAzPn+t/MC/aqAz66pLXa35812AnU78PXUJzwYakR8rJBwpMmU+ExzwrEWS8CrtRIqT7UhvN3ttsQ3ygjnWq8ALxfaU/lBM8LTiQripcaERxoOiFfqET4qIFyfdCZ+0ZXwTfcH8adehN/6fAF/P3pT+UtPwo+7bsSvuhA+61QTD3RkTat2mpaEC6vpgfDeappTedZW05RwYjWNqXxuNY2Ih6zpz2jaZ027rKnBvIjpDP5Bsx3evDkqc7B8DebS+IqNEEYfls2oySIb7U2TcEuZBuR2Nc3NUWCCw8QMh5KJMA48E48mTKs2OpZOx6LxyDADJnc6Zs11TJ2OSfOhyyM6cjqGrOOv+dOCHyJ/aOoVU8SK9NcAAAAASUVORK5CYII=');
+}
+
+.carousel-winners .carousel-winners-prev:focus-visible,
+.carousel-winners .carousel-winners-next:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- dots (hidden on mobile, as on source) ---------- */
+.carousel-winners nav {
+  display: none;
+}
+
+.carousel-winners .carousel-winners-indicators {
+  box-sizing: border-box;
+  height: 30px;
+  padding-top: 6px;
+  text-align: center;
+  line-height: 0;
+}
+
+.carousel-winners .carousel-winners-indicator {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.carousel-winners .carousel-winners-indicator button {
+  display: block;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.carousel-winners .carousel-winners-indicator button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: 7px;
+  border: 2px solid #b3ddfb;
+  border-radius: 8px;
+  background: #b3ddfb;
+  opacity: 0.25;
+}
+
+.carousel-winners .carousel-winners-indicator button:disabled {
+  cursor: default;
+}
+
+.carousel-winners .carousel-winners-indicator button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.carousel-winners .carousel-winners-indicator button:disabled::before,
+.carousel-winners .carousel-winners-indicator button:hover::before {
+  border-color: #fff;
+  background: #f29400;
+  opacity: 0.75;
+}
+
+/* ---------- 768-1200: photo | details | prize in one row ---------- */
+@media (width >= 768px) {
+  .carousel-winners {
+    height: 245px;
+    padding-bottom: 0;
+  }
+
+  .carousel-winners .carousel-winners-slide {
+    display: grid;
+    grid-template-columns: 3fr 4fr 5fr;
+    align-items: start;
+    height: 245px;
+    padding: 20px calc((100% - 720px) / 2) 0;
+    background-image: url('https://www.alc.ca/content/dam/alc/images/static/winners-carousel/winners-carousel-bg-generic.png');
+    text-align: start;
+  }
+
+  .carousel-winners .carousel-winners-slide::before {
+    top: 7px;
+    left: calc(50% - 198px);
+  }
+
+  .carousel-winners .carousel-winners-slide-photo img {
+    top: 25px;
+    left: 20px;
+  }
+
+  .carousel-winners .carousel-winners-slide-details {
+    padding: 0 10px 0 35px;
+  }
+
+  main .carousel-winners .carousel-winners-slide-cta a.button:any-link {
+    left: -10px;
+  }
+
+  .carousel-winners .carousel-winners-slide-prize {
+    top: 85px;
+    left: 15px;
+  }
+
+  .carousel-winners .carousel-winners-slide .carousel-winners-slide-game {
+    position: absolute;
+    top: -47px;
+    left: -30px;
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .carousel-winners .carousel-winners-slide-ribbon {
+    margin: 15px 20px 0 40px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='Casino'] img {
+    bottom: 1px;
+    left: 25px;
+    height: 49px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='Casino'] .carousel-winners-slide-ribbon {
+    padding-left: 110px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='LottoMax'] img {
+    left: 23px;
+  }
+
+  .carousel-winners .carousel-winners-slide .carousel-winners-slide-amount {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 40px;
+    text-align: start;
+  }
+
+  .carousel-winners .carousel-winners-slide-digits > span {
+    padding: 14px 8px 5px;
+    font-size: inherit;
+  }
+
+  .carousel-winners .carousel-winners-slide-digits > span:first-child::before {
+    font-size: 18px;
+  }
+
+  .carousel-winners .carousel-winners-prev,
+  .carousel-winners .carousel-winners-next {
+    top: 75px;
+    transform: none;
+  }
+
+  .carousel-winners nav {
+    position: absolute;
+    top: 211px;
+    right: 0;
+    left: 0;
+    display: block;
+  }
+}
+
+@media (width >= 992px) {
+  .carousel-winners .carousel-winners-slide {
+    padding-inline: calc((100% - 940px) / 2);
+  }
+
+  .carousel-winners .carousel-winners-slide::before {
+    left: calc(50% - 308px);
+  }
+}
+
+/* ---------- >1200: full-size photo, logo and digits ---------- */
+@media (width > 1200px) {
+  .carousel-winners .carousel-winners-slide {
+    padding-inline: calc((100% - 1140px) / 2);
+  }
+
+  .carousel-winners .carousel-winners-slide::before {
+    left: calc(50% - 328px);
+  }
+
+  .carousel-winners .carousel-winners-slide-photo img {
+    top: 2px;
+    width: 204px;
+    height: 204px;
+  }
+
+  .carousel-winners .carousel-winners-slide-prize {
+    left: 30px;
+  }
+
+  .carousel-winners .carousel-winners-slide .carousel-winners-slide-game {
+    top: -70px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game img {
+    height: 80px;
+  }
+
+  .carousel-winners .carousel-winners-slide-ribbon {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='Casino'] img {
+    bottom: 4px;
+    left: 20px;
+    height: 67px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='Casino'] .carousel-winners-slide-ribbon {
+    padding-left: 150px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='LottoMax'] img {
+    left: 16px;
+    height: 80px;
+  }
+
+  .carousel-winners .carousel-winners-slide-game[data-game='LottoMax'] .carousel-winners-slide-ribbon {
+    padding-left: 120px;
+  }
+
+  .carousel-winners .carousel-winners-slide .carousel-winners-slide-amount {
+    font-size: 72px;
+  }
+
+  .carousel-winners .carousel-winners-slide-digits > span {
+    padding: 12px 8px 0;
+    line-height: 58px;
+  }
+
+  .carousel-winners .carousel-winners-slide-digits > span:first-child::before {
+    font-size: 30px;
+    vertical-align: 28px;
+  }
+}
