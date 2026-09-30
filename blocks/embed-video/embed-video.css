@@ -1,0 +1,71 @@
+/* embed-video: values extracted from alc.ca .youtube-holder (lotto 6/49 "How to play") */
+.embed-video {
+  width: 100%;
+
+  /* source: 10px below the heading, 40px above the following paragraph (collapses with siblings) */
+  margin: 10px 0 40px;
+}
+
+.embed-video .embed-video-player {
+  position: relative;
+  width: 100%;
+
+  /* source player is 16:9 plus a fixed 25px (padding: 25px 0 56.25%), full container width */
+  height: 0;
+  padding-bottom: calc(56.25% + 25px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
+}
+
+.embed-video .embed-video-player iframe,
+.embed-video .embed-video-poster,
+.embed-video .embed-video-poster img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embed-video .embed-video-player iframe {
+  border-radius: 8px;
+}
+
+.embed-video .embed-video-poster img {
+  object-fit: cover;
+}
+
+.embed-video .embed-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5em;
+  height: 3.25em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.75em;
+  background: rgb(0 0 0 / 70%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.embed-video .embed-video-play:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.embed-video .embed-video-play-icon {
+  width: 0;
+  height: 0;
+  margin-left: 0.25em;
+  border-top: 0.75em solid transparent;
+  border-bottom: 0.75em solid transparent;
+  border-left: 1.25em solid #fff;
+}

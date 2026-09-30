@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html?fragment=odds-of-winning",
+  "path": "fragments/lotto/lotto-6-49/odds-of-winning",
+  "timestamp": "2026-09-25T15:02:03.576Z",
+  "title": "lotto-6-49 odds-of-winning",
+  "template": "lotto-fragment",
+  "blocks": [
+    "table-prize"
+  ]
+}

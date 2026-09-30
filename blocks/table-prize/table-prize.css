@@ -1,0 +1,54 @@
+/* table-prize: prize / odds tables (values from alc.ca game-details tab tables) */
+.table-prize .table-prize-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-prize .table-prize-scroll:focus-visible {
+  outline: 2px solid var(--alc-navy);
+  outline-offset: 2px;
+}
+
+.table-prize table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.4286;
+}
+
+/* source cells: 10px cell padding + 15px side padding and 10px bottom margin on the inner <p> */
+.table-prize th,
+.table-prize td {
+  padding: 10px 25px 20px;
+  border: 1px solid var(--alc-border-grey);
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-prize th strong,
+.table-prize th b,
+.table-prize td strong,
+.table-prize td b {
+  font-weight: 700;
+}
+
+.table-prize th p,
+.table-prize td p {
+  margin: 0 0 10px;
+}
+
+.table-prize th > :last-child,
+.table-prize td > :last-child {
+  margin-bottom: 0;
+}
+
+/* zebra striping across the whole table (class set by the block JS) */
+.table-prize tr.table-prize-alt {
+  background-color: #f9f9fa;
+}

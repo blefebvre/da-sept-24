@@ -10,6 +10,7 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  getMetadata,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -74,6 +75,29 @@ function buildWidgetAutoBlocks(main) {
 }
 
 /**
+ * Builds page chrome driven by page metadata (page main only, never inside fragments):
+ * `Breadcrumbs: true` adds a breadcrumbs block at the top of the first section,
+ * `Share: true` adds a share bar section after it.
+ * @param {Element} main The container element
+ */
+function buildPageChromeBlocks(main) {
+  if (main !== document.querySelector('main')) return;
+  const firstSection = main.querySelector(':scope > div');
+  if (!firstSection) return;
+  // metadata names keep their authored case in the local preview ("Breadcrumbs")
+  const flag = (name) => (getMetadata(name)
+    || document.querySelector(`meta[name="${name}" i]`)?.content || '').toLowerCase() === 'true';
+  if (flag('breadcrumbs')) {
+    firstSection.prepend(buildBlock('breadcrumbs', ''));
+  }
+  if (flag('share')) {
+    const shareSection = document.createElement('div');
+    shareSection.append(buildBlock('share', ''));
+    firstSection.after(shareSection);
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -97,6 +121,7 @@ function buildAutoBlocks(main) {
       });
     }
     buildWidgetAutoBlocks(main);
+    buildPageChromeBlocks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

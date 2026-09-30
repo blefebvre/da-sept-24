@@ -1,0 +1,493 @@
+/* winning numbers card (draw hero, left column); sizes measured on alc.ca at 1280px.
+   Below 768px the source shows the same card scaled to 70%, reproduced here with zoom. */
+.winning-numbers {
+  box-sizing: border-box;
+  width: 465px;
+  margin: 154px auto 0;
+  zoom: 0.7;
+  color: #69727b;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4286;
+  text-align: left;
+}
+
+.winning-numbers *,
+.winning-numbers *::before,
+.winning-numbers *::after {
+  box-sizing: border-box;
+}
+
+.winning-numbers p {
+  margin: 0;
+}
+
+.winning-numbers .winning-numbers-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.winning-numbers-card {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #d4dadf;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.winning-numbers-logo {
+  position: absolute;
+  top: -30px;
+  left: -25px;
+  z-index: 2;
+  width: 180px;
+  height: auto;
+}
+
+.winning-numbers .winning-numbers-title {
+  height: 60px;
+  margin: 0 0 5px;
+  padding: 20px 30px;
+  background-color: #00529b;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* date: dropdown of recent draws + calendar button (opens the native date picker) */
+.winning-numbers-date {
+  position: relative;
+  display: flex;
+  height: 60px;
+}
+
+.winning-numbers-select-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.winning-numbers-select {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 15px 45px 15px 15px;
+  border: 1px solid #aebbc7;
+  border-radius: 4px 0 0 4px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2369727b' d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E") no-repeat right 12px center / 25px;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 7.5%);
+  color: #69727b;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.86px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.winning-numbers-calendar {
+  position: relative;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  background-color: #006faf;
+  cursor: pointer;
+}
+
+.winning-numbers-calendar::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 35px;
+  height: 30px;
+  background: url("https://www.alc.ca/content/dam/alc/images/static/sprites/winning-numbers-sprites.png") -3px 0 no-repeat;
+}
+
+/* native date input the calendar button opens; kept rendered (invisible) under the button */
+.winning-numbers-picker-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.winning-numbers-picker {
+  width: 100%;
+  border: 1px solid #aebbc7;
+  color: #69727b;
+  font-weight: 700;
+}
+
+/* browsers without showPicker(): reveal the date input under the dropdown */
+.winning-numbers-card.is-picker-visible .winning-numbers-picker-label {
+  top: 100%;
+  bottom: auto;
+  z-index: 3;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* draw rows: label above each group of balls */
+.winning-numbers-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  height: 85px;
+  margin: 35px 0 10px;
+  padding: 30px 0 10px;
+  border-bottom: 1px solid #d4dadf;
+}
+
+.winning-numbers-group {
+  position: relative;
+}
+
+.winning-numbers-label {
+  display: block;
+  color: #69727b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4286;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.winning-numbers-group > .winning-numbers-label {
+  position: absolute;
+  top: -28px;
+  left: 5px;
+}
+
+.winning-numbers-main {
+  flex: 0 0 264px;
+  width: 264px;
+}
+
+.winning-numbers-bonus {
+  margin-left: 35px;
+}
+
+.winning-numbers-bonus > .winning-numbers-label {
+  top: -25px;
+  left: -5px;
+  font-size: 12px;
+}
+
+.winning-numbers-balls {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.winning-numbers-ball {
+  display: block;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  margin: 0 8px 0 0;
+  border-radius: 50%;
+  background: linear-gradient(#0078a8 0, #0fbbff 100%);
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+}
+
+.winning-numbers-bonus .winning-numbers-ball {
+  background: linear-gradient(#005fb4 0, #004f96 100%);
+}
+
+.winning-numbers-ball.is-empty {
+  background: #eef1f3;
+  box-shadow: inset 0 0 0 1px #d4dadf;
+}
+
+.winning-numbers-unavailable {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: #69727b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+/* nothing to say yet while a draw is loading */
+[aria-busy="true"] .winning-numbers-unavailable,
+[aria-busy="true"] .is-empty {
+  visibility: hidden;
+}
+
+/* TAG: logo over the number, right-aligned in the classic draw row */
+.winning-numbers-tag-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 35px;
+  background: url("https://www.alc.ca/content/dam/alc/images/static/sprites/winning-numbers-sprites.png") 0 -87px no-repeat;
+}
+
+.winning-numbers-tag-number {
+  color: #009ddb;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.86px;
+  white-space: nowrap;
+}
+
+.winning-numbers-row > .winning-numbers-tag {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+/* guaranteed prize draw (Gold Ball draw for Lotto 6/49) */
+.winning-numbers-guaranteed {
+  padding-left: 5px;
+}
+
+.winning-numbers-guaranteed > .winning-numbers-label {
+  margin-bottom: 5px;
+}
+
+.winning-numbers-results > .winning-numbers-guaranteed {
+  height: 100px;
+}
+
+.winning-numbers-guaranteed-number {
+  color: #009ddb;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4286;
+  white-space: nowrap;
+}
+
+.winning-numbers-guaranteed-number.is-empty {
+  color: #69727b;
+}
+
+.winning-numbers-gold {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.winning-numbers-gold-ball {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 7px 0 0 0 #fff;
+  color: #005cb9;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.winning-numbers-gold-ball img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 50px;
+  height: auto;
+}
+
+.winning-numbers-gold-currency {
+  position: relative;
+  top: -4px;
+  font-size: 9px;
+}
+
+.winning-numbers-gold-banner {
+  flex: 0 0 auto;
+  min-width: 255px;
+  height: 40px;
+  margin-left: -3px;
+  padding: 0 75px 0 25px;
+  background-color: #075cb9;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 50%, 100% 100%, 0 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+/* companion game bar (Atlantic 49): logo, "View numbers", chevron; expands below */
+.winning-numbers-secondary {
+  position: relative;
+  padding: 0 0 20px;
+  border: 1px solid #d4dadf;
+  border-radius: 0 0 8px 8px;
+  background-color: #fff;
+}
+
+.winning-numbers-secondary[hidden] {
+  display: none;
+}
+
+.winning-numbers-secondary-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  margin: 15px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: #d4dadf;
+  color: #69727b;
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4286;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.winning-numbers-secondary-logo {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 148px;
+  height: auto;
+}
+
+.winning-numbers-secondary-name {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  color: #ea2d31;
+  font-size: 20px;
+}
+
+.winning-numbers-secondary-label {
+  margin-right: 8px;
+}
+
+.winning-numbers-caret {
+  position: relative;
+  flex: 0 0 51px;
+  height: 40px;
+  border-left: 1px solid #fff;
+}
+
+.winning-numbers-caret::before {
+  content: "";
+  position: absolute;
+  inset: 7px 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23009ddb' d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E") center / 26px no-repeat;
+  transition: transform 0.2s;
+}
+
+.winning-numbers-secondary.is-open .winning-numbers-caret::before {
+  transform: rotate(180deg);
+}
+
+.winning-numbers-secondary-panel {
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+.winning-numbers-secondary-panel[hidden] {
+  display: none;
+}
+
+.winning-numbers-secondary-panel .winning-numbers-row {
+  height: 61px;
+  margin: 0 0 10px;
+  padding: 10px 0 0;
+}
+
+.winning-numbers-extra {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 46px;
+}
+
+.winning-numbers-extra > .winning-numbers-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.winning-numbers-extra .winning-numbers-tag-number {
+  margin-top: 9px;
+}
+
+.winning-numbers-select:focus-visible,
+.winning-numbers-calendar:focus-visible,
+.winning-numbers-picker:focus-visible,
+.winning-numbers-secondary-toggle:focus-visible {
+  outline: 2px solid #00529b;
+  outline-offset: 2px;
+}
+
+@media (width >= 768px) {
+  .winning-numbers {
+    margin-top: 47px;
+    zoom: 1;
+  }
+
+  .winning-numbers-label,
+  .winning-numbers-secondary-toggle {
+    font-size: 12px;
+  }
+
+  .winning-numbers-group > .winning-numbers-label {
+    top: -25px;
+  }
+
+  .winning-numbers-guaranteed-number {
+    font-size: 16px;
+  }
+
+  .winning-numbers-unavailable {
+    font-size: 15px;
+  }
+}
+
+@media (width >= 1200px) {
+  .winning-numbers {
+    margin-right: 0;
+    margin-left: 15px;
+  }
+}

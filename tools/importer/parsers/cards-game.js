@@ -33,7 +33,11 @@ function tileImage(container, document) {
 }
 
 export default function parse(element, { document }) {
-  let tiles = [...element.querySelectorAll('div.game-tile.parbase')];
+  // Shape 1 (homepage, main.cmp-container--game-tiles): container of N div.game-tile.parbase.
+  // Shape 2 (lotto right rail, #promos div.game-tile): the element IS a single tile wrapper.
+  let tiles = element.matches('div.game-tile, article.game-tile')
+    ? [element]
+    : [...element.querySelectorAll('div.game-tile.parbase')];
   if (!tiles.length) tiles = [...element.querySelectorAll('article.game-tile')];
 
   const cells = [];

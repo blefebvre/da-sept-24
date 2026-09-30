@@ -1,0 +1,269 @@
+/* next draw jackpot panel (draw hero, right column); sizes measured on alc.ca at 1280px,
+   mobile (< 768px) follows the source's scaled-down stack */
+.jackpot {
+  box-sizing: border-box;
+  width: 326px;
+  margin: 63px auto 33px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4286;
+  text-align: left;
+}
+
+.jackpot *,
+.jackpot *::before,
+.jackpot *::after {
+  box-sizing: border-box;
+}
+
+.jackpot p {
+  margin: 0;
+}
+
+.jackpot .jackpot-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* red "Lotto 6/49 / Next Draw" box */
+.jackpot-next {
+  display: inline-block;
+  max-width: 100%;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #ea2d31;
+  color: #fff;
+  font-weight: 700;
+}
+
+.jackpot .jackpot-game {
+  margin: 0 5px -10px 0;
+  font-size: 20px;
+  line-height: 28.57px;
+}
+
+.jackpot .jackpot-next-draw {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 22.86px;
+}
+
+/* navy "$ 5M CLASSIC JACKPOT +" ribbon with a notched end */
+.jackpot .jackpot-classic {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 300px;
+  height: 33px;
+  margin: 32px 0 0;
+  padding: 0 47px 0 21px;
+  background-color: #215096;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 50%, 100% 100%, 0 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.86px;
+  white-space: nowrap;
+}
+
+.jackpot-plus {
+  margin-left: auto;
+  padding-left: 20px;
+  font-size: 25px;
+  line-height: 1;
+}
+
+/* white digit boxes: "$14 | 000 | 000" */
+.jackpot .jackpot-amount {
+  display: flex;
+  margin: 3px 0 0 -2px;
+  zoom: 0.6;
+}
+
+.jackpot-digits {
+  display: flex;
+}
+
+.jackpot-group,
+.jackpot-message {
+  position: relative;
+  display: block;
+  height: 100px;
+  margin-left: 2px;
+  padding: 20px 5px 10px 10px;
+  border: 1px solid #d4dadf;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #00529b;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 70px;
+  white-space: nowrap;
+}
+
+/* split-flap line across the digits */
+.jackpot-group::after {
+  content: "";
+  position: absolute;
+  top: 47px;
+  right: 5px;
+  left: 10px;
+  height: 2px;
+  background-color: rgb(255 255 255 / 50%);
+}
+
+.jackpot-currency {
+  display: inline-block;
+  width: 17px;
+  font-size: 28px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.jackpot-message {
+  display: flex;
+  align-items: center;
+  max-width: 493px;
+  padding: 10px 20px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+/* "G●LD BALL JACKPOT | OR THE GUARANTEED $1M" bar */
+.jackpot .jackpot-goldball {
+  display: flex;
+  height: 38px;
+  margin-left: -1px;
+  zoom: 0.8;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.jackpot-goldball-jackpot {
+  flex: 0 0 auto;
+  min-width: 171px;
+  padding: 8px 0 0 15px;
+  border-radius: 0 0 0 10px;
+  background-color: #215096;
+  color: #fff;
+  font-size: 15px;
+  line-height: 21.43px;
+}
+
+.jackpot-goldball-o {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 -2px;
+  border-radius: 50%;
+  background-image: radial-gradient(5px 5px, #ffe900 0, #e5c524 100%);
+  box-shadow: 0 0 4px 0 #888;
+}
+
+.jackpot-goldball-notch {
+  flex: 0 0 32px;
+  background: linear-gradient(to bottom right, #215096 calc(50% - 0.5px), #fff calc(50% + 0.5px));
+}
+
+.jackpot-goldball-guaranteed {
+  flex: 0 0 auto;
+  min-width: 167px;
+  padding: 8px 15px 1px 0;
+  border-radius: 0 0 10px;
+  background-color: #fff;
+  color: #215096;
+  font-size: 12px;
+  line-height: 17.14px;
+  text-align: center;
+}
+
+/* no guaranteed alternative when the Gold Ball jackpot has no standard balls left */
+.jackpot-goldball.is-max .jackpot-goldball-notch,
+.jackpot-goldball.is-max .jackpot-goldball-guaranteed {
+  display: none;
+}
+
+.jackpot-goldball.is-max .jackpot-goldball-jackpot {
+  padding-right: 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (width >= 768px) {
+  .jackpot {
+    width: 465px;
+    margin: 30px auto 25px;
+  }
+
+  /* single line: "Lotto 6/49  Next Draw: …" */
+  .jackpot .jackpot-game,
+  .jackpot .jackpot-next-draw {
+    display: inline;
+    margin: 0 5px 0 0;
+  }
+
+  .jackpot .jackpot-classic {
+    margin-top: 31px;
+  }
+
+  .jackpot .jackpot-amount,
+  .jackpot .jackpot-goldball {
+    zoom: 1;
+  }
+
+  .jackpot .jackpot-goldball {
+    height: 38.5px;
+  }
+
+  .jackpot-goldball-jackpot {
+    min-width: 217px;
+    padding-top: 5px;
+    font-size: 20px;
+    line-height: 28.57px;
+  }
+
+  .jackpot-goldball-o {
+    width: 16px;
+    height: 16px;
+  }
+
+  .jackpot-goldball-guaranteed {
+    min-width: 213px;
+    font-size: 16px;
+    line-height: 22.86px;
+  }
+}
+
+@media (width >= 1200px) {
+  .jackpot {
+    width: auto;
+    margin: 47px 0 25px 48px;
+  }
+
+  .jackpot .jackpot-game,
+  .jackpot .jackpot-next-draw {
+    display: block;
+  }
+
+  .jackpot .jackpot-game {
+    margin: 0 5px -10px 0;
+    font-size: 36px;
+    line-height: 51.43px;
+  }
+
+  .jackpot .jackpot-next-draw {
+    margin: 0 0 5px;
+  }
+
+  .jackpot .jackpot-classic {
+    margin-top: 32px;
+  }
+}

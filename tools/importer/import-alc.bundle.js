@@ -200,7 +200,7 @@ var CustomImportScript = (() => {
     return el;
   }
   function parse3(element, { document: document2 }) {
-    let tiles = [...element.querySelectorAll("div.game-tile.parbase")];
+    let tiles = element.matches("div.game-tile, article.game-tile") ? [element] : [...element.querySelectorAll("div.game-tile.parbase")];
     if (!tiles.length) tiles = [...element.querySelectorAll("article.game-tile")];
     const cells = [];
     tiles.forEach((tile) => {
@@ -424,6 +424,36 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/alc-links.js
+  var TransformHook2 = { beforeTransform: "beforeTransform", afterTransform: "afterTransform" };
+  var ALC_HOST = /^https?:\/\/(www\.)?alc\.ca(?=\/|$)/i;
+  var EN_PAGE = /^\/content\/alc\/en((?:\/[^?#]*?)?)((?:\.html)+)(\?[^#]*)?(#.*)?$/i;
+  function rewriteAlcHref(href) {
+    if (!href) return null;
+    const raw = href.trim();
+    const local = raw.replace(ALC_HOST, "");
+    if (local === raw && !raw.startsWith("/")) return null;
+    const m = local.match(EN_PAGE);
+    if (!m) return null;
+    const [, rest, , query = "", hash = ""] = m;
+    let path = rest || "";
+    if (path === "" || path === "/") path = "/";
+    if (path.length > 1) path = path.replace(/\/+$/, "");
+    return `${path}${query}${hash}`;
+  }
+  var DAM_ASSET = /^\/content\/dam\//i;
+  function transform3(hookName, element, payload) {
+    if (hookName === TransformHook2.afterTransform) {
+      element.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
+        const next = DAM_ASSET.test(href.trim()) ? `https://www.alc.ca${href.trim()}` : rewriteAlcHref(href);
+        if (next === null || next === href) return;
+        a.setAttribute("href", next);
+        if (a.textContent.trim() === href.trim()) a.textContent = next;
+      });
+    }
+  }
+
   // tools/importer/import-alc.js
   var parsers = {
     "carousel-hero": parse,
@@ -487,7 +517,9 @@ var CustomImportScript = (() => {
   };
   var transformers = [
     transform,
-    ...PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [transform2] : []
+    ...PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [transform2] : [],
+    // rewrite internal /content/alc/en/*.html links to EDS paths (runs in afterTransform)
+    transform3
   ];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), {

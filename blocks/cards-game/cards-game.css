@@ -1,10 +1,18 @@
 /* ALC game tiles: image banner on top, white content box with title,
    description and full-width pill CTA pinned to the bottom of the box.
    Mobile (< 768px): one tile at a time (scroll-snap carousel) with prev/next + dots.
-   >= 768px: two tiles per row (source col-sm-6 grid). */
+   >= 768px: two tiles per row (source col-sm-6 grid), or one full-width
+   tile per row when the block sits in a narrow column (e.g. the 387px
+   "Other games you may like" right rail) - see the container query below. */
 
 .cards-game {
+  container: cards-game / inline-size;
   margin: 0 -20px; /* bleed over the 20px section gutter so tiles sit 10px from the viewport edge */
+}
+
+/* a single tile is not a carousel: keep it inside its section gutter */
+.cards-game:has(> ul > .cards-game-card:only-child) {
+  margin: 0;
 }
 
 .cards-game > ul {
@@ -32,6 +40,10 @@
   scroll-snap-align: start;
   font-size: 16px;
   line-height: 19.2px;
+}
+
+.cards-game .cards-game-card:only-child {
+  padding: 0;
 }
 
 /* image: 185px banner, source uses a centred, unscaled background image */
@@ -217,5 +229,20 @@
 
   .cards-game .cards-game-controls {
     display: none;
+  }
+
+  /* narrow column (source right rail, col-lg-4 = 387px): one tile per row,
+     spanning the column; the rail's own 10px gutter replaces the grid gutters
+     and tiles stack 20px apart (source .game-tile 10px + article 10px) */
+  @container cards-game (width < 600px) {
+    .cards-game > ul {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 0;
+    }
+
+    .cards-game .cards-game-card {
+      margin-bottom: 20px;
+      padding: 0;
+    }
   }
 }

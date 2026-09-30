@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html?fragment=prize-payout",
+  "path": "fragments/lotto/lotto-6-49/prize-payout",
+  "timestamp": "2026-09-25T15:01:34.136Z",
+  "title": "lotto-6-49 prize-payout",
+  "template": "lotto-fragment",
+  "blocks": [
+    "widget"
+  ]
+}

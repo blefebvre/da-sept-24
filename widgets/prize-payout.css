@@ -1,0 +1,320 @@
+/* Prize Payout widget (recreates alc.ca game-detail-draw "Prize Payout" tab) */
+.prize-payout {
+  color: var(--text-color, #69727b);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.prize-payout button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.prize-payout button:focus-visible {
+  outline: 2px solid var(--alc-navy, #00529b);
+  outline-offset: 2px;
+}
+
+.prize-payout .prize-payout-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Expand All | Collapse All | Print ---------- */
+.prize-payout .prize-payout-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 0 10px;
+  padding: 0 20px;
+  color: var(--link-color, #006faf);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18.5714px;
+  text-transform: uppercase;
+}
+
+.prize-payout .prize-payout-toggles button {
+  border-bottom: 1px solid currentcolor;
+  line-height: 18.5714px;
+  text-transform: uppercase;
+}
+
+.prize-payout .prize-payout-spacer {
+  margin: 0 3px 0 5px;
+}
+
+.prize-payout .prize-payout-print {
+  display: inline-flex;
+  align-items: center;
+  color: var(--alc-blue, #009ddb);
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.prize-payout .prize-payout-print-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.prize-payout .prize-payout-print span {
+  border-bottom: 1px solid currentcolor;
+}
+
+.prize-payout .prize-payout-toggles button:hover,
+.prize-payout .prize-payout-print:hover span {
+  color: var(--link-hover-color, #005e95);
+}
+
+/* ---------- collapsible bars ---------- */
+.prize-payout .prize-payout-panel {
+  margin: 0 0 20px;
+}
+
+.prize-payout .prize-payout-heading {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.prize-payout .prize-payout-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding: 0 65px 0 15px;
+  background-color: var(--alc-border-grey, #d4dadf);
+  text-align: left;
+}
+
+/* white divider before the chevron */
+.prize-payout .prize-payout-trigger::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50px;
+  width: 1px;
+  height: 100%;
+  background-color: #fff;
+}
+
+/* chevron: down when collapsed, up when expanded */
+.prize-payout .prize-payout-trigger::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 21px;
+  width: 8px;
+  height: 8px;
+  border-right: 3px solid var(--alc-blue, #009ddb);
+  border-bottom: 3px solid var(--alc-blue, #009ddb);
+  transform: translateY(-75%) rotate(45deg);
+}
+
+.prize-payout .prize-payout-trigger[aria-expanded="true"]::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.prize-payout .prize-payout-logo {
+  display: block;
+  flex: none;
+  width: auto;
+}
+
+.prize-payout .prize-payout-title {
+  margin-left: 5px;
+  color: var(--alc-blue, #009ddb);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.prize-payout .prize-payout-trigger:hover .prize-payout-title {
+  text-decoration: underline;
+}
+
+.prize-payout .prize-payout-body {
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.prize-payout .prize-payout-body[hidden] {
+  display: none;
+}
+
+.prize-payout .prize-payout-unavailable {
+  margin: 0;
+  padding: 10px 15px;
+}
+
+/* ---------- tables ---------- */
+.prize-payout .prize-payout-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color, #69727b);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.prize-payout .prize-payout-table + .prize-payout-table {
+  margin-top: 20px;
+}
+
+.prize-payout .prize-payout-caption {
+  padding: 0 15px 10px;
+  text-align: left;
+}
+
+.prize-payout .prize-payout-table tbody th,
+.prize-payout .prize-payout-table tbody td {
+  padding: 10px;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.prize-payout .prize-payout-table:not(.prize-payout-secondary) tbody tr:nth-child(even) {
+  background-color: #f9f9fa;
+}
+
+.prize-payout .prize-payout-table thead th {
+  padding: 0;
+  background-color: var(--alc-blue, #009ddb);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.prize-payout .prize-payout-table thead th + th {
+  border-left: 1px solid var(--alc-border-grey, #d4dadf);
+}
+
+/* prize counts sit in paragraphs, as on the source */
+.prize-payout .prize-payout-table td p {
+  margin: 0 0 10px;
+  padding: 0 15px;
+}
+
+/* guaranteed / gold ball summary rows */
+.prize-payout .prize-payout-table .prize-payout-summary td {
+  padding: 20px 0 10px 20px;
+  font-weight: 700;
+  line-height: 17.6px;
+  text-align: left;
+}
+
+.prize-payout .prize-payout-table .prize-payout-summary-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 10px;
+  padding: 0 20px 0 0;
+}
+
+.prize-payout .prize-payout-table .prize-payout-summary:has(.prize-payout-summary-inner) td {
+  padding: 16px 0 16px 20px;
+}
+
+.prize-payout .prize-payout-summary-count {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.prize-payout .prize-payout-show-all {
+  flex-basis: 100%;
+  color: var(--link-color, #006faf);
+  font-size: 14px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+@media (width >= 768px) {
+  .prize-payout .prize-payout-toolbar {
+    justify-content: flex-end;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+
+  .prize-payout .prize-payout-spacer {
+    margin: 0 5px;
+  }
+
+  .prize-payout .prize-payout-print {
+    margin-left: 38px;
+  }
+
+  .prize-payout .prize-payout-print-icon {
+    width: 22px;
+    height: 19px;
+  }
+
+  .prize-payout .prize-payout-trigger {
+    border-radius: 8px;
+  }
+
+  .prize-payout .prize-payout-title {
+    font-size: 18px;
+  }
+
+  /* the source fixes the first column of the main game tables (not TAG / secondary games) */
+  .prize-payout .prize-payout-panel-main thead th:first-child {
+    width: 240px;
+  }
+
+  .prize-payout .prize-payout-table thead th:first-child {
+    border-top-left-radius: 8px;
+  }
+
+  .prize-payout .prize-payout-table thead th:last-child {
+    border-top-right-radius: 8px;
+  }
+}
+
+/* Print: only the payout tables, all expanded */
+@media print {
+  body.prize-payout-printing * {
+    visibility: hidden;
+  }
+
+  body.prize-payout-printing .prize-payout.is-printing,
+  body.prize-payout-printing .prize-payout.is-printing * {
+    visibility: visible;
+  }
+
+  body.prize-payout-printing .prize-payout.is-printing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .prize-payout.is-printing .prize-payout-toolbar {
+    display: none;
+  }
+
+  .prize-payout.is-printing .prize-payout-body[hidden] {
+    display: block;
+  }
+
+  .prize-payout.is-printing .prize-payout-trigger::after,
+  .prize-payout.is-printing .prize-payout-trigger::before {
+    display: none;
+  }
+}

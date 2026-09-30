@@ -348,3 +348,217 @@ main .section.mobile-promo img {
     display: none;
   }
 }
+
+/* ---------- game detail pages (lotto template) ---------- */
+
+/* draw hero: game artwork as background, breadcrumb on top,
+   winning-numbers (left) and jackpot + CTA (right) in the 1160px container */
+main > .section.lotto-draw {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  padding-top: 20px;
+  padding-bottom: 130px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #0a5da8;
+}
+
+main > .section.lotto-draw > div {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
+}
+
+/* source hides the breadcrumb below 768px */
+main > .section.lotto-draw > .breadcrumbs-wrapper {
+  display: none;
+  padding-bottom: 20px;
+}
+
+main > .section.lotto-draw .button-wrapper {
+  margin: 0;
+}
+
+main > .section.lotto-draw a.button:any-link {
+  min-width: 230px;
+}
+
+/* stacked (< 1200px): CTA lines up with the jackpot panel */
+main > .section.lotto-draw > .default-content-wrapper:has(.button-wrapper) {
+  max-width: 330px;
+  padding: 0 0 0 5px;
+}
+
+@media (width >= 768px) {
+  main > .section.lotto-draw {
+    padding-top: 0;
+    padding-bottom: 70px;
+  }
+
+  main > .section.lotto-draw > .breadcrumbs-wrapper {
+    display: block;
+    padding-top: 13px;
+  }
+
+  main > .section.lotto-draw > .default-content-wrapper:has(.button-wrapper) {
+    max-width: 465px;
+    padding: 0 0 0 1px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .section.lotto-draw > div {
+    padding: 0 10px;
+  }
+}
+
+/* side by side from 1200px like the source: winning numbers left, jackpot + CTA right */
+@media (width >= 1200px) {
+  main > .section.lotto-draw {
+    grid-template-columns: 1fr minmax(0, 514px) minmax(0, 646px) 1fr;
+    grid-template-rows: auto auto 1fr;
+    min-height: 598px;
+    padding-bottom: 30px;
+  }
+
+  main > .section.lotto-draw > .breadcrumbs-wrapper {
+    grid-column: 2 / 4;
+  }
+
+  main > .section.lotto-draw > .winning-numbers-wrapper {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+
+  main > .section.lotto-draw > .jackpot-wrapper {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  main > .section.lotto-draw > .default-content-wrapper:has(.button-wrapper) {
+    grid-column: 3;
+    grid-row: 3;
+    max-width: var(--content-max-width);
+    margin: 0;
+    padding: 0 10px 0 60px;
+  }
+}
+
+/* share bar (page metadata Share: true) */
+main > .section.share-container {
+  padding: 5px 20px;
+  background-color: var(--alc-blue);
+}
+
+/* game body: textured page background, translucent white 1160px container,
+   main column (2/3: rewards line, tabs, winner promo) + right rail (1/3: other games) */
+main > .section.game-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0 0 30px;
+  background: url('https://www.alc.ca/content/dam/alc/images/static/alc-images/background.jpg') 0 0 / 100% auto;
+}
+
+@media (width >= 900px) {
+  /* translucent white 1160px content panel behind both columns */
+  main > .section.game-details {
+    background:
+      linear-gradient(
+        to right,
+        transparent calc(50% - 580px),
+        rgb(255 255 255 / 50%) calc(50% - 580px),
+        rgb(255 255 255 / 50%) calc(50% + 580px),
+        transparent calc(50% + 580px)
+      ),
+      url('https://www.alc.ca/content/dam/alc/images/static/alc-images/background.jpg') 0 0 / 100% auto;
+  }
+}
+
+main > .section.game-details > div {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 10px;
+}
+
+/* rewards earn-rate line: coin icon + "Get 40 points for every $1 spent" */
+main > .section.game-details > .default-content-wrapper:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: 25px;
+  padding-bottom: 16px;
+  color: #4e5b68;
+}
+
+main > .section.game-details > .default-content-wrapper:first-child p {
+  margin: 0;
+}
+
+main > .section.game-details > .default-content-wrapper:first-child img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* right rail heading "Other games you may like:" */
+main > .section.game-details > .default-content-wrapper:has(+ .cards-game-wrapper) h2 {
+  margin: 20px 0 10px;
+  color: var(--alc-blue);
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19.8px;
+}
+
+@media (width >= 900px) {
+  main > .section.game-details {
+    grid-template-columns: 1fr minmax(0, 773px) minmax(0, 387px) 1fr;
+    align-items: start;
+  }
+
+  main > .section.game-details > div {
+    grid-column: 2;
+  }
+
+  main > .section.game-details > .default-content-wrapper:has(+ .cards-game-wrapper) {
+    grid-column: 3;
+    grid-row: 1;
+    padding-top: 25px;
+  }
+
+  main > .section.game-details > .cards-game-wrapper {
+    grid-column: 3;
+    grid-row: 2 / 99;
+  }
+}
+
+/* draw hero: first authored image = section background
+   (kept last: its :has() selectors out-rank the rules above) */
+main > .section.lotto-draw > .default-content-wrapper:has(> p:only-child > picture:only-child) {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  max-width: none;
+  padding: 0;
+}
+
+main > .section.lotto-draw > .default-content-wrapper:has(> p:only-child > picture:only-child) p {
+  height: 100%;
+  margin: 0;
+}
+
+main > .section.lotto-draw > .default-content-wrapper:has(> p:only-child > picture:only-child) picture,
+main > .section.lotto-draw > .default-content-wrapper:has(> p:only-child > picture:only-child) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}

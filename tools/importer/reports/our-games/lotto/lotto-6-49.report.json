@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html",
+  "path": "our-games/lotto/lotto-6-49",
+  "timestamp": "2026-09-25T19:22:13.961Z",
+  "title": "Lotto 649 | Our Games | Atlantic Lottery Corporation",
+  "template": "lotto",
+  "blocks": [
+    "widget",
+    "widget",
+    "tabs-game",
+    "columns-winner",
+    "cards-game"
+  ],
+  "fragments": [
+    "prize-payout",
+    "winners",
+    "how-to-play",
+    "odds-of-winning",
+    "combination-play"
+  ]
+}

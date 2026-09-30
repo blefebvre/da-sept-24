@@ -10,7 +10,6 @@
       ],
       "representativeUrl": "https://www.alc.ca/content/alc/en.html",
       "description": "ALC homepage: hero promo carousel, recent winners slider, featured game tiles with right-rail promos",
-      "urlPattern": "/content/alc/*",
       "blocks": [
         {
           "name": "carousel-hero",
@@ -78,6 +77,154 @@
           ],
           "defaultContent": [
             "div.section-header.cmp-section-header--alc-green"
+          ]
+        }
+      ],
+      "urlPattern": "/content/alc/*"
+    },
+    {
+      "name": "lotto",
+      "urls": [
+        "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+      ],
+      "representativeUrl": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html",
+      "description": "Game detail page (lotto): draw hero with live winning numbers + jackpot widgets, tabbed game info (prize payout, winners, how to play) with fragment-backed panels, winner promo, other-games rail",
+      "blocks": [
+        {
+          "name": "widget",
+          "instances": [
+            "#draw-subcomponent > div.draw--full.row > div.draw--full__winning-numbers",
+            "#draw-subcomponent > div.draw--full.row > div.draw--full__jackpot",
+            ".prize-payout-content > div.payout-tables",
+            ".winners-tab-content > div.winners-list"
+          ]
+        },
+        {
+          "name": "tabs-game",
+          "instances": [
+            "div.content > div.tabs"
+          ]
+        },
+        {
+          "name": "columns-winner",
+          "instances": [
+            "div.content div.winners-promo"
+          ]
+        },
+        {
+          "name": "cards-game",
+          "instances": [
+            "#promos div.game-tile"
+          ]
+        },
+        {
+          "name": "accordion-game",
+          "instances": [
+            ".how-to-play-content .panel-group"
+          ]
+        },
+        {
+          "name": "embed-video",
+          "instances": [
+            ".how-to-play-content iframe"
+          ]
+        },
+        {
+          "name": "table-prize",
+          "instances": [
+            ".how-to-play-content .panel-group table"
+          ]
+        }
+      ],
+      "urlPattern": "/content/alc/en/our-games/lotto/*",
+      "sections": [
+        {
+          "id": "1",
+          "name": "draw-hero",
+          "selector": [
+            "#game-details > div.alc-external-data--draw-full"
+          ],
+          "style": "lotto-draw",
+          "blocks": [
+            "widget"
+          ],
+          "defaultContent": [
+            "div.draw--full__jackpot__cta > a.arrow-button"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "share-bar",
+          "selector": [
+            "#game-details > section.header.blue"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": []
+        },
+        {
+          "id": "3",
+          "name": "game-body",
+          "selector": [
+            "#game-details > div.body-content"
+          ],
+          "style": "game-details",
+          "blocks": [
+            "tabs-game",
+            "columns-winner",
+            "cards-game"
+          ],
+          "defaultContent": [
+            "section.rewards-section > div.rewards-earn-rate",
+            "#promos > h2"
+          ]
+        }
+      ],
+      "fragments": [
+        {
+          "name": "prize-payout",
+          "source": ".tab-pane.prize-payout-content",
+          "path": "/fragments/lotto/{page}/prize-payout",
+          "usedBy": "tabs-game row 1",
+          "blocks": [
+            "widget"
+          ]
+        },
+        {
+          "name": "winners",
+          "source": ".tab-pane.winners-tab-content",
+          "path": "/fragments/lotto/{page}/winners",
+          "usedBy": "tabs-game row 2",
+          "blocks": [
+            "widget"
+          ]
+        },
+        {
+          "name": "how-to-play",
+          "source": ".tab-pane.how-to-play-content",
+          "path": "/fragments/lotto/{page}/how-to-play",
+          "usedBy": "tabs-game row 3",
+          "blocks": [
+            "accordion-game",
+            "embed-video"
+          ]
+        },
+        {
+          "name": "odds-of-winning",
+          "source": "accordion item Odds of Winning (table + footnotes)",
+          "path": "/fragments/lotto/{page}/odds-of-winning",
+          "usedBy": "accordion-game item",
+          "blocks": [
+            "table-prize"
+          ]
+        },
+        {
+          "name": "combination-play",
+          "source": "accordion item Combination Play (table)",
+          "path": "/fragments/lotto/{page}/combination-play",
+          "usedBy": "accordion-game item",
+          "blocks": [
+            "table-prize"
           ]
         }
       ]

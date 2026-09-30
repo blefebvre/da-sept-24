@@ -1,0 +1,198 @@
+/* tabs-game: ALC game-info tabs (Prize Payout / Winners / How to play)
+   values measured on alc.ca lotto-6-49 (.tabs > ul.nav-tabs + .tab-content) */
+
+/* below 900px the source runs the tabs edge to edge; cancel the game-details 10px gutter */
+.tabs-game {
+  margin-inline: -10px;
+}
+
+/* ---------- tab bar ---------- */
+.tabs-game .tabs-game-list {
+  display: flex;
+  box-shadow: 0 3px 8px 0 rgb(37 100 144 / 12%);
+}
+
+.tabs-game .tabs-game-tab {
+  flex: 1 1 auto;
+  margin: 0 0 -2px;
+
+  /* source stacks li border (outer) + a border (inner); mobile keeps the widths, transparent */
+  border: 1px solid transparent;
+  border-left-width: 0;
+  border-radius: 0;
+  padding: 11px 15px 10px;
+  background-color: var(--text-color);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.8571px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tabs-game .tabs-game-tab:first-child {
+  border-left-width: 1px;
+}
+
+.tabs-game .tabs-game-tab:hover {
+  background-color: #eee;
+  color: var(--text-color);
+}
+
+.tabs-game .tabs-game-tab[aria-selected='true'] {
+  background-color: #fff;
+  color: var(--text-color);
+  cursor: default;
+}
+
+/* ---------- panel ---------- */
+.tabs-game .tabs-game-panel {
+  padding: 20px 0;
+  border: 1px solid var(--alc-border-grey);
+  border-top: 0;
+  background-color: #fff;
+}
+
+.tabs-game .tabs-game-panel[hidden] {
+  display: none;
+}
+
+/* fragments loaded into a panel arrive as sections; remove nested section spacing */
+.tabs-game .tabs-game-panel .section {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-game .tabs-game-panel .section > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- panel default content (nested blocks style themselves) ---------- */
+.tabs-game .tabs-game-panel .default-content-wrapper p {
+  margin: 0 0 10px;
+  color: #4e5b68;
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper h2,
+.tabs-game .tabs-game-panel .default-content-wrapper h3 {
+  color: var(--alc-blue);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper h2 {
+  margin: 20px 0 10px;
+  font-size: 22px;
+  line-height: 24.2px;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 19.8px;
+}
+
+/* panel title followed by a lone link ("All LOTTO 6/49 Winners" + "See winners for all games") */
+.tabs-game .tabs-game-panel .default-content-wrapper h2:has(+ p > a:only-child) {
+  font-size: 28px;
+  line-height: 30.8px;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper h2 + p:has(> a:only-child) {
+  margin: 0 0 20px;
+  line-height: 20px;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper h2 + p > a:only-child {
+  border-bottom: 1px solid var(--link-color);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+/* bold links are auto-decorated as pill buttons; the source shows a plain bold link */
+.tabs-game .tabs-game-panel .default-content-wrapper p.button-wrapper {
+  margin: 0 0 10px;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper a.button:any-link {
+  box-sizing: content-box;
+  position: static;
+  display: inline;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.8571px;
+  text-align: inherit;
+  overflow: visible;
+  white-space: normal;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper a.button:any-link::after {
+  content: none;
+}
+
+.tabs-game .tabs-game-panel .default-content-wrapper a.button:hover,
+.tabs-game .tabs-game-panel .default-content-wrapper a.button:focus-visible {
+  background: none;
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .tabs-game .tabs-game-tab {
+    flex: 1 1 0;
+  }
+}
+
+@media (width >= 900px) {
+  .tabs-game {
+    margin-inline: 0;
+  }
+
+  .tabs-game .tabs-game-tab {
+    border-color: #aebbc7 #ddd #ddd #fff;
+    border-left-width: 1px;
+    box-shadow: inset 0 1px 0 #ddd;
+  }
+
+  .tabs-game .tabs-game-tab:first-child {
+    border-left-color: #aebbc7;
+    border-top-left-radius: 4px;
+  }
+
+  .tabs-game .tabs-game-tab:last-child {
+    border-right-color: #aebbc7;
+    border-top-right-radius: 4px;
+  }
+
+  .tabs-game .tabs-game-tab[aria-selected='true'] {
+    border-bottom-color: transparent;
+  }
+
+  .tabs-game .tabs-game-panel {
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .tabs-game .tabs-game-panel .default-content-wrapper h2 + p:has(> a:only-child) {
+    margin-top: -35px;
+    text-align: right;
+  }
+}

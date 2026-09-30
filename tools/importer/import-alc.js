@@ -10,6 +10,7 @@ import cardsPromoParser from './parsers/cards-promo.js';
 // TRANSFORMER IMPORTS
 import alcCleanupTransformer from './transformers/alc-cleanup.js';
 import alcSectionsTransformer from './transformers/alc-sections.js';
+import alcLinksTransformer from './transformers/alc-links.js';
 
 // PARSER REGISTRY
 const parsers = {
@@ -79,6 +80,8 @@ const PAGE_TEMPLATE = {
 const transformers = [
   alcCleanupTransformer,
   ...(PAGE_TEMPLATE.sections && PAGE_TEMPLATE.sections.length > 1 ? [alcSectionsTransformer] : []),
+  // rewrite internal /content/alc/en/*.html links to EDS paths (runs in afterTransform)
+  alcLinksTransformer,
 ];
 
 /**

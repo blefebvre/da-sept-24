@@ -11,10 +11,15 @@
   },
   "contentPattern": "1 row per tile: cell 1 = tile image; cell 2 = title (h3), description, optional draw info, CTA link. NEW badge dropped or expressed as text.",
   "options": [],
-  "memberVariantIds": ["cards-game"],
+  "memberVariantIds": [
+    "cards-game"
+  ],
   "usage": {
-    "pagesUsing": ["https://www.alc.ca/content/alc/en.html"],
-    "reuseCount": 1,
-    "lastUsed": "2026-09-24"
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en.html",
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-09-25"
   }
 }

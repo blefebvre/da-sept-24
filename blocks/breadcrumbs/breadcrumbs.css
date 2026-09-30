@@ -1,0 +1,45 @@
+/* source: white box with uppercase 14px bold links and chevron separators */
+.breadcrumbs nav {
+  display: inline-block;
+  padding: 7px 16px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs li + li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin: 0 10px 0 6px;
+  border-top: 2px solid var(--text-color);
+  border-right: 2px solid var(--text-color);
+  transform: rotate(45deg);
+}
+
+.breadcrumbs a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.breadcrumbs [aria-current='page'] {
+  margin: 0 4px;
+  color: var(--text-color);
+}
