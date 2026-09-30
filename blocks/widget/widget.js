@@ -64,6 +64,8 @@ export default async function decorate(widget) {
     applyWidgetShell(widget, source, widgetName, searchParams);
 
     const resp = await fetch(widgetUrl(widgetPath, widgetName, 'html'));
+    // don't render an error page into the widget when its code doesn't exist
+    if (!resp.ok) throw new Error(`widget html not found (${resp.status})`);
     widget.innerHTML = await resp.text();
 
     const cssLoaded = loadCSS(widgetUrl(widgetPath, widgetName, 'css'));
@@ -75,5 +77,8 @@ export default async function decorate(widget) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(`failed to load widget ${widgetPath}/${widgetName}`, error);
+    // leave no raw widget link on the page; the widget keeps its space in the layout
+    widget.replaceChildren();
+    widget.dataset.widgetStatus = 'failed';
   }
 }

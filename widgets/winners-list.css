@@ -1,0 +1,437 @@
+/* Winners List widget (recreates the alc.ca game page "Winners" tab) */
+.winners-list {
+  padding: 0 10px;
+  color: var(--text-color, #69727b);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.winners-list .winners-list-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.winners-list button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.winners-list button:focus-visible,
+.winners-list select:focus-visible,
+.winners-list input:focus-visible {
+  outline: 2px solid var(--alc-navy, #00529b);
+  outline-offset: 1px;
+}
+
+.winners-list .winners-list-panel {
+  margin: 0 0 20px;
+}
+
+/* ---------- filter bar ---------- */
+.winners-list .winners-list-filters {
+  padding: 10px 5px 5px;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--alc-blue, #009ddb);
+}
+
+.winners-list .winners-list-filters-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 48px;
+  text-align: left;
+}
+
+.winners-list .winners-list-filters-toggle::after {
+  content: "+";
+  font-size: 32px;
+}
+
+.winners-list .winners-list-filters-toggle[aria-expanded="true"]::after {
+  content: "\2212";
+}
+
+.winners-list .winners-list-form {
+  display: none;
+  flex-direction: column;
+  margin: 0;
+}
+
+.winners-list .winners-list-filters.is-open .winners-list-form {
+  display: flex;
+}
+
+.winners-list .winners-list-filters.is-open .winners-list-filters-toggle {
+  margin-bottom: 5px;
+}
+
+.winners-list .winners-list-field {
+  position: relative;
+  padding: 0 5px;
+}
+
+.winners-list .winners-list-form select,
+.winners-list .winners-list-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 10px;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-radius: 5px;
+  background-color: #fff;
+  color: var(--text-color, #69727b);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.winners-list .winners-list-form select {
+  height: 38px;
+  padding: 8px 36px 5px 12px;
+  font-weight: 700;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* select chevron */
+.winners-list .winners-list-field-select::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 19px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--text-color, #69727b);
+  border-bottom: 2px solid var(--text-color, #69727b);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.winners-list .winners-list-form input {
+  height: 38px;
+  margin: 0;
+  padding: 7px 40px 6px 12px;
+  appearance: none;
+}
+
+.winners-list .winners-list-form input::placeholder {
+  color: #7d858d;
+  opacity: 1;
+}
+
+.winners-list .winners-list-form input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.winners-list .winners-list-submit {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 38px;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  background: #fff url("https://www.alc.ca/content/dam/alc/images/static/sprites/ALC-sprite-2.png") no-repeat -40px -110px;
+}
+
+/* ---------- winner cards ---------- */
+.winners-list .winners-list-winner {
+  display: flow-root;
+  padding: 25px 10px 20px;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-top: 0;
+}
+
+.winners-list .winners-list-photo {
+  float: left;
+  box-sizing: border-box;
+  width: 110px;
+  height: 110px;
+  margin: 0 30px 20px 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 3px 0 0 rgb(230 230 230 / 70%);
+}
+
+.winners-list .winners-list-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.winners-list .winners-list-info {
+  float: left;
+  padding-left: 15px;
+}
+
+.winners-list .winners-list-name,
+.winners-list .winners-list-location {
+  margin: 0;
+  color: var(--text-color, #69727b);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.winners-list .winners-list-name {
+  font-weight: 700;
+}
+
+.winners-list .winners-list-game {
+  display: block;
+  width: auto;
+  height: 40px;
+  margin: 14px 0 1px -7px;
+}
+
+.winners-list .winners-list-prize {
+  display: flex;
+  align-items: flex-start;
+  min-height: 45px;
+  margin: -6px 0 5px -15px;
+  color: var(--alc-navy, #00529b);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.2857px;
+}
+
+.winners-list .winners-list-prize::before {
+  content: "$";
+  margin-right: 5px;
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.winners-list .winners-list-prize-boxes {
+  display: flex;
+  gap: 2px;
+}
+
+.winners-list .winners-list-prize-boxes span {
+  box-sizing: border-box;
+  height: 38px;
+  padding: 8px 5px 0;
+  overflow: hidden;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-radius: 5px;
+  background-color: #fff;
+  line-height: 26px;
+}
+
+.winners-list .winners-list-prize-text {
+  margin: 4px 0 5px;
+  color: var(--alc-navy, #00529b);
+  font-weight: 700;
+}
+
+.winners-list .winners-list-retailer {
+  clear: both;
+}
+
+.winners-list .winners-list-date {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.1429px;
+}
+
+.winners-list .winners-list-retailer-text {
+  margin: 0;
+}
+
+.winners-list .winners-list-retailer-label {
+  margin-right: 4px;
+  font-weight: 700;
+}
+
+.winners-list .winners-list-retailer-name:not(:empty)::after {
+  content: ",";
+  margin-right: 4px;
+}
+
+/* ---------- messages / load more ---------- */
+.winners-list .winners-list-message {
+  margin: 0;
+  padding: 20px 0;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-top: 0;
+  color: var(--alc-blue, #009ddb);
+  font-size: 22px;
+  line-height: 31.4286px;
+  text-align: center;
+}
+
+.winners-list .winners-list-more {
+  padding: 20px 10px;
+  border: 1px solid var(--alc-border-grey, #d4dadf);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+}
+
+.winners-list .winners-list-more[hidden] {
+  display: none;
+}
+
+.winners-list .winners-list-more-button {
+  margin-top: 19px;
+  padding: 6px 12px;
+  color: var(--alc-blue, #009ddb);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.winners-list .winners-list-more-button span {
+  border-bottom: 1px solid currentcolor;
+}
+
+.winners-list .winners-list-more-button::after {
+  content: "+";
+  margin-left: 5px;
+}
+
+.winners-list .winners-list-more-button:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+@media (width >= 768px) {
+  .winners-list {
+    padding: 0;
+  }
+
+  .winners-list .winners-list-panel {
+    padding: 0 10px 10px;
+    border: 1px solid var(--alc-border-grey, #d4dadf);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px 0 rgb(0 82 155 / 10%);
+  }
+
+  .winners-list .winners-list-filters {
+    margin: -1px -11px 0;
+    padding: 10px 5px;
+  }
+
+  .winners-list .winners-list-filters-toggle {
+    display: none;
+  }
+
+  .winners-list .winners-list-form,
+  .winners-list .winners-list-filters.is-open .winners-list-form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .winners-list .winners-list-field {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .winners-list .winners-list-form select,
+  .winners-list .winners-list-form input {
+    height: 34px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .winners-list .winners-list-form select {
+    padding: 7px 36px 5px 12px;
+  }
+
+  .winners-list .winners-list-form input {
+    padding: 7px 40px 5px 12px;
+  }
+
+  .winners-list .winners-list-field-select::after {
+    top: 10px;
+  }
+
+  .winners-list .winners-list-submit {
+    height: 34px;
+    background-position: -40px -112px;
+  }
+
+  /* flex instead of the source's floats, so a long name never pushes the retailer down */
+  .winners-list .winners-list-winner {
+    display: flex;
+    align-items: flex-start;
+    padding: 32px 10px;
+    border-width: 0 0 1px;
+  }
+
+  .winners-list .winners-list-photo {
+    flex: none;
+    width: 134px;
+    height: 134px;
+    margin: 0 64px 0 0;
+  }
+
+  .winners-list .winners-list-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  .winners-list .winners-list-prize {
+    font-size: 29px;
+    line-height: 41.4286px;
+  }
+
+  .winners-list .winners-list-prize::before {
+    font-size: 21px;
+    line-height: 30px;
+  }
+
+  .winners-list .winners-list-retailer {
+    flex: none;
+    box-sizing: border-box;
+    width: 160px;
+    padding-right: 20px;
+  }
+
+  .winners-list .winners-list-retailer-label {
+    display: block;
+    margin: 0;
+  }
+
+  .winners-list .winners-list-retailer-name,
+  .winners-list .winners-list-retailer-place {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .winners-list .winners-list-retailer-name:not(:empty)::after {
+    content: none;
+  }
+
+  .winners-list .winners-list-message {
+    border-width: 0;
+  }
+
+  .winners-list .winners-list-more {
+    padding: 10px 10px 20px;
+    border-width: 0;
+  }
+}

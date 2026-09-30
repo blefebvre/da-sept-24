@@ -1,0 +1,20 @@
+{
+  "variantName": "carousel-winners",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-blue",
+    "density": "medium",
+    "purpose": "winner-stories",
+    "imagePattern": "circular-photo + logo",
+    "structure": "image + logo + prize + name + location + cta"
+  },
+  "contentPattern": "1 row per winner: cell 1 = winner photo; cell 2 = game logo image, prize amount (heading), winner name, location, 'See all winners' link",
+  "options": [],
+  "memberVariantIds": ["carousel-winners"],
+  "usage": {
+    "pagesUsing": ["https://www.alc.ca/content/alc/en.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24"
+  }
+}

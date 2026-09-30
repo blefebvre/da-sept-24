@@ -1,0 +1,51 @@
+/* stack of full-width, image-only linked promo banners (right rail) */
+
+/* source: rail is 375px wide with 0 10px padding on mobile; the section
+   wrapper already adds 20px, so pull the block out by 10px each side */
+.cards-promo {
+  margin: 0 -10px;
+}
+
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* source: each promo has margin-top 10px (including the first) */
+.cards-promo .cards-promo-item {
+  min-width: 0;
+  margin: 10px 0 0;
+}
+
+.cards-promo .cards-promo-link,
+.cards-promo .cards-promo-image {
+  display: block;
+  line-height: 0;
+}
+
+.cards-promo .cards-promo-item picture,
+.cards-promo .cards-promo-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards-promo .cards-promo-caption {
+  padding: 8px 0;
+}
+
+/* tablet: source rail keeps a single column at 50% width */
+@media (width >= 768px) and (width < 900px) {
+  .cards-promo > ul {
+    max-width: 50%;
+  }
+}
+
+/* desktop: rail column is 387px with 0 10px padding -> 366.66px promos */
+@media (width >= 900px) {
+  .cards-promo {
+    margin: 0;
+    padding: 0 10px;
+  }
+}

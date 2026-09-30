@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html?fragment=combination-play",
+  "path": "fragments/lotto/lotto-6-49/combination-play",
+  "timestamp": "2026-09-25T15:02:14.678Z",
+  "title": "lotto-6-49 combination-play",
+  "template": "lotto-fragment",
+  "blocks": [
+    "table-prize"
+  ]
+}

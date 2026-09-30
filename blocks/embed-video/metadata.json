@@ -1,0 +1,24 @@
+{
+  "variantName": "embed-video",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "game-video",
+    "imagePattern": "video",
+    "structure": "url"
+  },
+  "contentPattern": "YouTube https://www.youtube.com/watch?v=wwM8Mah5sAA",
+  "options": [],
+  "memberVariantIds": [
+    "embed-video"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-25"
+  }
+}

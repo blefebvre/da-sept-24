@@ -1,0 +1,25 @@
+<div class="winning-numbers-card">
+  <img class="winning-numbers-logo" alt="" width="180" height="113">
+  <h1 class="winning-numbers-title">Winning Numbers</h1>
+  <div class="winning-numbers-date">
+    <label class="winning-numbers-select-label">
+      <span class="winning-numbers-sr">Draw date</span>
+      <select class="winning-numbers-select"></select>
+    </label>
+    <button type="button" class="winning-numbers-calendar" aria-label="Choose a draw date on a calendar"></button>
+    <label class="winning-numbers-picker-label">
+      <span class="winning-numbers-sr">Draw date (calendar)</span>
+      <input type="date" class="winning-numbers-picker" tabindex="-1">
+    </label>
+  </div>
+  <div class="winning-numbers-results" aria-busy="true"></div>
+  <p class="winning-numbers-sr winning-numbers-status" role="status"></p>
+</div>
+<div class="winning-numbers-secondary" hidden>
+  <button type="button" class="winning-numbers-secondary-toggle" aria-expanded="false">
+    <img class="winning-numbers-secondary-logo" alt="" width="148" height="59">
+    <span class="winning-numbers-secondary-label">View Numbers</span>
+    <span class="winning-numbers-caret" aria-hidden="true"></span>
+  </button>
+  <div class="winning-numbers-secondary-panel" role="region" hidden></div>
+</div>

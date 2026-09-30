@@ -1,0 +1,26 @@
+<div class="winners-list-panel">
+  <div class="winners-list-filters">
+    <button type="button" class="winners-list-filters-toggle" aria-expanded="false">Filter Winners</button>
+    <form class="winners-list-form" role="search" aria-label="Filter winners">
+      <div class="winners-list-field winners-list-field-select">
+        <label class="winners-list-sr-only" data-for="province">Province</label>
+        <select name="province" data-id="province"></select>
+      </div>
+      <div class="winners-list-field winners-list-field-select">
+        <label class="winners-list-sr-only" data-for="sort">Sort winners</label>
+        <select name="sort" data-id="sort"></select>
+      </div>
+      <div class="winners-list-field winners-list-field-search">
+        <label class="winners-list-sr-only" data-for="name">Search first or last name</label>
+        <input type="search" name="name" data-id="name" placeholder="Search first or last name" autocomplete="off">
+        <button type="submit" class="winners-list-submit"><span class="winners-list-sr-only">Search</span></button>
+      </div>
+    </form>
+  </div>
+  <div class="winners-list-items"></div>
+  <p class="winners-list-message" hidden></p>
+  <div class="winners-list-more" hidden>
+    <button type="button" class="winners-list-more-button"><span>Load More Winners</span></button>
+  </div>
+  <p class="winners-list-status winners-list-sr-only" role="status" aria-live="polite"></p>
+</div>

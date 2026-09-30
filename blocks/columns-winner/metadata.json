@@ -1,0 +1,24 @@
+{
+  "variantName": "columns-winner",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "winner-claim-promo",
+    "imagePattern": "cutout-right",
+    "structure": "heading + text + link | image"
+  },
+  "contentPattern": "1 row, 2 cells: cell 1 = h2 'Congrats! You're a winner, now what?' (source h1 demoted), paragraph 'See how to claim your prize.', link 'CLAIM YOUR TICKET'; cell 2 = image ./images/a9d89f229f7230efaa6266fd6cb89625.png",
+  "options": [],
+  "memberVariantIds": [
+    "columns-winner"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-25"
+  }
+}

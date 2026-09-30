@@ -1,0 +1,24 @@
+{
+  "variantName": "table-prize",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "prize-odds-table",
+    "imagePattern": "noimg",
+    "structure": "header row + data rows"
+  },
+  "contentPattern": "Header row Number of winning numbers | Total | Number of wins per category; data rows per combination type",
+  "options": [],
+  "memberVariantIds": [
+    "table-prize"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-25"
+  }
+}

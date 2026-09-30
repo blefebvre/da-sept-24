@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html?fragment=how-to-play",
+  "path": "fragments/lotto/lotto-6-49/how-to-play",
+  "timestamp": "2026-09-25T15:01:54.378Z",
+  "title": "lotto-6-49 how-to-play",
+  "template": "lotto-fragment",
+  "blocks": [
+    "accordion-game",
+    "embed-video"
+  ]
+}

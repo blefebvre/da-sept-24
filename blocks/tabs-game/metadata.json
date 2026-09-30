@@ -1,0 +1,24 @@
+{
+  "variantName": "tabs-game",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "game-info-tabs",
+    "imagePattern": "noimg",
+    "structure": "tab label + fragment link"
+  },
+  "contentPattern": "3 rows, 2 cells: 'Prize Payout' | link /fragments/lotto/lotto-6-49/prize-payout ; 'Winners' | link /fragments/lotto/lotto-6-49/winners ; 'How to play' | link /fragments/lotto/lotto-6-49/how-to-play",
+  "options": [],
+  "memberVariantIds": [
+    "tabs-game"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-25"
+  }
+}

@@ -1,0 +1,185 @@
+/* columns-winner: "Congrats! You're a winner" claim promo (source: .winners-promo .winner-help)
+   mobile: open layout, cropped image strip with a green rule, centered CTA bar
+   >= 768px: bordered white box, green left bar, cut-out image overflowing the top-right */
+.columns-winner {
+  margin: 20px -10px 0;
+  padding: 0 10px;
+  background-color: var(--background-color);
+}
+
+.columns-winner .columns-winner-row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* mobile order (as on source): heading + copy, image strip, CTA bar */
+.columns-winner .columns-winner-text {
+  display: contents;
+}
+
+/* text */
+.columns-winner .columns-winner-text h1,
+.columns-winner .columns-winner-text h2,
+.columns-winner .columns-winner-text h3 {
+  margin: 20px 0 5px;
+  color: var(--alc-green);
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 200;
+  line-height: 1.1;
+}
+
+.columns-winner .columns-winner-text p {
+  margin: 0 0 10px;
+}
+
+/* call to action: uppercase bold chevron link */
+.columns-winner .columns-winner-text .columns-winner-cta {
+  order: 2;
+  margin: 0 -10px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--alc-border-grey);
+  text-align: center;
+}
+
+.columns-winner .columns-winner-cta a:any-link {
+  position: relative;
+  border-bottom: 2px solid transparent;
+  color: var(--link-color);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.columns-winner .columns-winner-cta a:hover,
+.columns-winner .columns-winner-cta a:active {
+  border-bottom-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+
+/* Material Icons chevron_right, 16px, 2px after the text */
+.columns-winner .columns-winner-cta a:any-link::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 100%;
+  width: 16px;
+  height: 22.86px;
+  margin-left: 2px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+}
+
+/* image: full-bleed strip cropped to 105px with a green bottom rule and a soft shadow above it */
+.columns-winner .columns-winner-image {
+  order: 1;
+  position: relative;
+  box-sizing: border-box;
+  max-height: 105px;
+  margin: 0 -10px;
+  padding: 0 10px;
+  overflow: hidden;
+  border-bottom: 4px solid #afb924;
+  text-align: center;
+}
+
+.columns-winner .columns-winner-image::after {
+  content: "";
+  position: absolute;
+  top: 101px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 90%);
+}
+
+.columns-winner .columns-winner-image picture {
+  display: inline;
+}
+
+.columns-winner .columns-winner-image img {
+  display: inline-block;
+  position: relative;
+  left: -5px;
+  width: 213px;
+  max-width: none;
+  height: auto;
+  margin-top: 10px;
+  vertical-align: middle;
+}
+
+@media (width >= 768px) {
+  .columns-winner {
+    position: relative;
+    margin: 20px 0;
+    padding: 0 10px 0 25px;
+    border: 1px solid var(--alc-border-grey);
+    border-radius: 8px;
+  }
+
+  /* green left bar */
+  .columns-winner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 10px;
+    height: 150px;
+    border-left: 5px solid var(--alc-green);
+    border-radius: 8px;
+  }
+
+  /* flow-root keeps the heading's top margin inside the box */
+  .columns-winner .columns-winner-row {
+    display: flow-root;
+    min-height: 150px;
+  }
+
+  /* text takes the bootstrap col-sm-8 share of the box */
+  .columns-winner .columns-winner-text {
+    display: block;
+    width: calc((100% + 20px) * 2 / 3 - 20px);
+  }
+
+  .columns-winner .columns-winner-no-image .columns-winner-text {
+    width: auto;
+  }
+
+  /* source: 10px paragraph margin + 10px actions margin (floats, no collapsing) */
+  .columns-winner .columns-winner-text .columns-winner-cta {
+    margin: 20px 0 0;
+    padding: 0;
+    border-bottom: 0;
+    text-align: start;
+  }
+
+  /* cut-out image pinned top-right, overflowing the top border by 19px */
+  .columns-winner .columns-winner-image {
+    position: absolute;
+    top: -20px;
+    right: 3px;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border-bottom: 0;
+  }
+
+  .columns-winner .columns-winner-image::after {
+    content: none;
+  }
+
+  .columns-winner .columns-winner-image img {
+    display: block;
+    left: 0;
+    margin: 0;
+  }
+}
+
+@media (width >= 993px) {
+  .columns-winner .columns-winner-text h1,
+  .columns-winner .columns-winner-text h2,
+  .columns-winner .columns-winner-text h3 {
+    font-size: 24px;
+  }
+}

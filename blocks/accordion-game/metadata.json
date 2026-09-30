@@ -1,0 +1,24 @@
+{
+  "variantName": "accordion-game",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-grey",
+    "density": "medium",
+    "purpose": "game-rules-faq",
+    "imagePattern": "noimg",
+    "structure": "title + rich text"
+  },
+  "contentPattern": "8 rows: title | content. Rows 'Odds of Winning' and 'Combination Play' contain text/lists plus a link to a table fragment",
+  "options": [],
+  "memberVariantIds": [
+    "accordion-game"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "https://www.alc.ca/content/alc/en/our-games/lotto/lotto-6-49.html"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-25"
+  }
+}
